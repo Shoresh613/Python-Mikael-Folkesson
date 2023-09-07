@@ -5,6 +5,7 @@ Python course for **AI23**, *ITHS*
 - Python
 - AI
 - 23
+- 24
 
 ---
 ## Kodblock
