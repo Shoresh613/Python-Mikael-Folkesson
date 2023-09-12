@@ -1,0 +1,17 @@
+{
+    "firstname": "Fredrik",
+    "lastname": "Johansson",
+    "age": 42,
+    "languages": [
+        "Python",
+        "C#",
+        "JavaScript"
+    ],
+    "contactinfo": {
+        "phone": "0702345634",
+        "email": [
+            "fredrik@gmail.com",
+            "fredrik.johansson@hotmail.com"
+        ]
+    }
+}
