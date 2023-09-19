@@ -1,0 +1,48 @@
+
+Number of rolls: 10
+1's: Count - 4, Probability - 0.4
+2's: Count - 0, Probability - 0.0
+3's: Count - 1, Probability - 0.1
+4's: Count - 3, Probability - 0.3
+5's: Count - 1, Probability - 0.1
+6's: Count - 1, Probability - 0.1
+
+Number of rolls: 100
+1's: Count - 17, Probability - 0.17
+2's: Count - 8, Probability - 0.08
+3's: Count - 17, Probability - 0.17
+4's: Count - 17, Probability - 0.17
+5's: Count - 16, Probability - 0.16
+6's: Count - 25, Probability - 0.25
+
+Number of rolls: 1000
+1's: Count - 169, Probability - 0.169
+2's: Count - 149, Probability - 0.149
+3's: Count - 170, Probability - 0.17
+4's: Count - 171, Probability - 0.171
+5's: Count - 171, Probability - 0.171
+6's: Count - 170, Probability - 0.17
+
+Number of rolls: 10000
+1's: Count - 1674, Probability - 0.1674
+2's: Count - 1710, Probability - 0.171
+3's: Count - 1637, Probability - 0.1637
+4's: Count - 1640, Probability - 0.164
+5's: Count - 1651, Probability - 0.1651
+6's: Count - 1688, Probability - 0.1688
+
+Number of rolls: 100000
+1's: Count - 16791, Probability - 0.16791
+2's: Count - 16799, Probability - 0.16799
+3's: Count - 16691, Probability - 0.16691
+4's: Count - 16445, Probability - 0.16445
+5's: Count - 16850, Probability - 0.1685
+6's: Count - 16424, Probability - 0.16424
+
+Number of rolls: 1000000
+1's: Count - 166832, Probability - 0.166832
+2's: Count - 166833, Probability - 0.166833
+3's: Count - 165858, Probability - 0.165858
+4's: Count - 166225, Probability - 0.166225
+5's: Count - 166806, Probability - 0.166806
+6's: Count - 167446, Probability - 0.167446
