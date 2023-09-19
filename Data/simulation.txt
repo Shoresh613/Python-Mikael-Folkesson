@@ -1,48 +1,48 @@
 
 Number of rolls: 10
-1's: Count - 4, Probability - 0.4
-2's: Count - 0, Probability - 0.0
-3's: Count - 1, Probability - 0.1
-4's: Count - 3, Probability - 0.3
-5's: Count - 1, Probability - 0.1
+1's: Count - 2, Probability - 0.2
+2's: Count - 2, Probability - 0.2
+3's: Count - 2, Probability - 0.2
+4's: Count - 1, Probability - 0.1
+5's: Count - 2, Probability - 0.2
 6's: Count - 1, Probability - 0.1
 
 Number of rolls: 100
-1's: Count - 17, Probability - 0.17
-2's: Count - 8, Probability - 0.08
-3's: Count - 17, Probability - 0.17
-4's: Count - 17, Probability - 0.17
+1's: Count - 16, Probability - 0.16
+2's: Count - 23, Probability - 0.23
+3's: Count - 15, Probability - 0.15
+4's: Count - 16, Probability - 0.16
 5's: Count - 16, Probability - 0.16
-6's: Count - 25, Probability - 0.25
+6's: Count - 14, Probability - 0.14
 
 Number of rolls: 1000
-1's: Count - 169, Probability - 0.169
-2's: Count - 149, Probability - 0.149
-3's: Count - 170, Probability - 0.17
-4's: Count - 171, Probability - 0.171
-5's: Count - 171, Probability - 0.171
-6's: Count - 170, Probability - 0.17
+1's: Count - 163, Probability - 0.163
+2's: Count - 167, Probability - 0.167
+3's: Count - 174, Probability - 0.174
+4's: Count - 163, Probability - 0.163
+5's: Count - 180, Probability - 0.18
+6's: Count - 153, Probability - 0.153
 
 Number of rolls: 10000
-1's: Count - 1674, Probability - 0.1674
-2's: Count - 1710, Probability - 0.171
-3's: Count - 1637, Probability - 0.1637
-4's: Count - 1640, Probability - 0.164
-5's: Count - 1651, Probability - 0.1651
-6's: Count - 1688, Probability - 0.1688
+1's: Count - 1643, Probability - 0.1643
+2's: Count - 1638, Probability - 0.1638
+3's: Count - 1654, Probability - 0.1654
+4's: Count - 1646, Probability - 0.1646
+5's: Count - 1683, Probability - 0.1683
+6's: Count - 1736, Probability - 0.1736
 
 Number of rolls: 100000
-1's: Count - 16791, Probability - 0.16791
-2's: Count - 16799, Probability - 0.16799
-3's: Count - 16691, Probability - 0.16691
-4's: Count - 16445, Probability - 0.16445
-5's: Count - 16850, Probability - 0.1685
-6's: Count - 16424, Probability - 0.16424
+1's: Count - 16614, Probability - 0.16614
+2's: Count - 16770, Probability - 0.1677
+3's: Count - 16804, Probability - 0.16804
+4's: Count - 16904, Probability - 0.16904
+5's: Count - 16426, Probability - 0.16426
+6's: Count - 16482, Probability - 0.16482
 
 Number of rolls: 1000000
-1's: Count - 166832, Probability - 0.166832
-2's: Count - 166833, Probability - 0.166833
-3's: Count - 165858, Probability - 0.165858
-4's: Count - 166225, Probability - 0.166225
-5's: Count - 166806, Probability - 0.166806
-6's: Count - 167446, Probability - 0.167446
+1's: Count - 166407, Probability - 0.166407
+2's: Count - 166776, Probability - 0.166776
+3's: Count - 166734, Probability - 0.166734
+4's: Count - 166506, Probability - 0.166506
+5's: Count - 166731, Probability - 0.166731
+6's: Count - 166846, Probability - 0.166846
