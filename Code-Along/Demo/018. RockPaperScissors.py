@@ -11,7 +11,7 @@ def main():
     print_rules()
     number_of_rounds = select_number_of_rounds()
     print(f"Best of {number_of_rounds} wins. Let's start!")
-    score=game_loop(number_of_rounds)
+    game_loop(number_of_rounds)
     print(f"You won {score} times out of {number_of_rounds}.")
 
 def print_rules():
