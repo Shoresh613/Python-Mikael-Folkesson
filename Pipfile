@@ -9,6 +9,7 @@ matplotlib = "*"
 numpy = "*"
 
 [dev-packages]
+pandas = "*"
 
 [requires]
 python_version = "3.11"
