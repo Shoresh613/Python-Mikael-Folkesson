@@ -1,13 +1,2 @@
-# Python-Mikael-Folkesson
-Python course for **AI23**, *ITHS*
-
-- Course
-- Python
-- AI
-- 23
-
----
-## Kodblock
-```python
-print("Kodblock")
-``` 
+# Lab tasks by Mikael Folkesson @Python course, ITHS 
+Putting lab 3 here, check out the lab3 folder.
