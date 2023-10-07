@@ -8,9 +8,11 @@ class Rectangle(Common_supershape):
         self.side2 = side2
     
     def is_inside(self, x, y):
-        if self.x - self.side1 / 2 <= x <= self.side_1 + self.side1 / 2:
-            if self.y - self.side2 / 2 <= y <= self.side_2 + self.side2 / 2:
+        if self.x - self.side1 / 2 <= x <= self.x + self.side1 / 2:
+            if self.y - self.side2 / 2 <= y <= self.y + self.side2 / 2:
                 return True
+            else:
+                return False
         else:
            return False 
     
