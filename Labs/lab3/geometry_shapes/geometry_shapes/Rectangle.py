@@ -3,9 +3,9 @@ from Common_supershape import Common_supershape
 class Rectangle(Common_supershape):
     def __init__(self, x=0, y=0, side1=1,side2=1):
         self._x = x
-        self.y = y
-        self.side1 = side1
-        self.side2 = side2
+        self._y = y
+        self._side1 = side1
+        self._side2 = side2
     
     def is_inside(self, x, y):
         if self.x - self.side1 / 2 <= x <= self.side_1 + self.side1 / 2:
@@ -33,7 +33,7 @@ class Rectangle(Common_supershape):
 
     # Setter method
     @x.setter
-    def red(self, x):
+    def x(self, x):
         self._x = x
 
     @property
