@@ -1,4 +1,5 @@
 from Common_supershape import Common_supershape
+import matplotlib.patches as patches
 
 class Rectangle(Common_supershape):
     def __init__(self, x=0, y=0, side1=1,side2=1):
@@ -24,7 +25,11 @@ class Rectangle(Common_supershape):
 
     def __str__(self) -> str:
         return super().__str__() + f": Center point: {self.x,self.y}, width: {self.side1}, height {self.side2}"
- 
+
+    def draw(self, ax):
+        rectangle = patches.Rectangle((self.x, self.y), self.side1, self.side2, fill=False, color='red')
+        ax.add_patch(rectangle)
+
 # Setters and getters beyond this point
 #######################################
 
@@ -63,5 +68,3 @@ class Rectangle(Common_supershape):
     def side2(self, side2):
         if self.is_value_ok(side2):
             self._side2 = side2
-
-

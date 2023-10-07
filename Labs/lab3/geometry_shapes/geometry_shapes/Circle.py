@@ -1,5 +1,7 @@
 from Common_supershape import Common_supershape
 import math
+import matplotlib.patches as patches
+
 
 class Circle(Common_supershape):
     def __init__(self, x=0, y=0, radius=1):
@@ -20,6 +22,12 @@ class Circle(Common_supershape):
     
     def __str__(self) -> str:
         return super().__str__() + f": Center point: {self.x,self.y}, radius: {self.radius}, circumference: {self._circumference}, area: {self._area}"
+    
+    def draw(self, ax):
+        # Plot a circle
+        circle = patches.Circle((self.x, self.y), self.radius, fill=False, color='blue')
+        ax.add_patch(circle)
+
 
 # Setters and getters beyond this point
 #######################################

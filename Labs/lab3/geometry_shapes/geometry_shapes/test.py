@@ -1,5 +1,7 @@
 from Circle import Circle
 from Rectangle import Rectangle
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 
 my_circle = Circle()
 my_circle.translate(5,5)
@@ -25,3 +27,7 @@ print(f"{my_rectangle.is_inside(-4,6.4) = }")
 print()
 print(my_circle)
 print(f"{my_circle.is_inside(5.8,5.8) = }")
+
+# Create a figure and axis
+fig, ax = plt.subplots()
+my_circle.draw(ax)

@@ -12,9 +12,7 @@ This tells pip to install the Python package in the current directory. The ``-e`
 
 ### Still to do
 * Overloads and overrides
-* Error management
 * Spheres and cubes
 * Drawing the shapes
-* Create properties
 * Unit testing
 * Docstrings
