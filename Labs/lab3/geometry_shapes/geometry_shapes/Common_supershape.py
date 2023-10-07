@@ -14,3 +14,9 @@ class Common_supershape:
 
     def draw(self):
         pass
+
+    def is_value_ok(self, value):
+        if type(value) == int or type(value) == float:
+            return True
+        else:
+            raise ValueError(f"Value '{value}' must be an integer or a float entered as (a) digit(s).")

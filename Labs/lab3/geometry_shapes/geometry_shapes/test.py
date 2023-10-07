@@ -12,10 +12,13 @@ my_second_circle = Circle(2,3,5)
 print()
 print(my_second_circle)
 
-my_rectangle = Rectangle()
+my_rectangle = Rectangle(1,3,6,3)
 my_rectangle.translate(-5,5)
 
 print(my_rectangle)
 
 print(my_second_circle.__repr__())
 print(my_rectangle.__repr__())
+
+print(my_circle)
+print(my_circle.is_inside(5,5))
