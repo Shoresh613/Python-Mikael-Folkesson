@@ -20,3 +20,9 @@ class Common_supershape:
             return True
         else:
             raise ValueError(f"Value '{value}' must be an integer or a float entered as (a) digit(s).")
+    def is_size_value_ok(self, value):
+        if (type(value) == int or type(value) == float) and value > 0:
+            return True
+        else:
+            raise ValueError(f"Value '{value}' must be a positive integer or float (>0) entered as (a) digit(s).")
+

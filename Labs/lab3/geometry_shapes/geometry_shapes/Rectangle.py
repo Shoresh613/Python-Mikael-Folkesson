@@ -26,8 +26,13 @@ class Rectangle(Common_supershape):
     def __str__(self) -> str:
         return super().__str__() + f": Center point: {self.x,self.y}, width: {self.side1}, height {self.side2}"
 
-    def draw(self, ax):
+    def draw(self, ax, label=True):
         rectangle = patches.Rectangle((self.x, self.y), self.side1, self.side2, fill=False, color='red')
+        y = self.y + self.side2/2 if self.side1 > 3 and self.side2 > 2 else (self.y -1.5)
+        
+        if label:
+            ax.text(self.x+self.side1/2, y, f'x:{self.x} y: {self.y}\nw:{self.side1} h:{self.side2}', 
+                    ha='center', va='center', fontsize=8, color='red')
         ax.add_patch(rectangle)
 
 # Setters and getters beyond this point
@@ -39,8 +44,11 @@ class Rectangle(Common_supershape):
 
     @x.setter
     def x(self, x):
-        if self.is_value_ok(x):
-            self._x = x 
+        try:
+            if self.is_value_ok(x):
+                self._x = x 
+        except ValueError as ex:
+            print(ex)
 
     @property
     def y(self):
@@ -48,8 +56,11 @@ class Rectangle(Common_supershape):
 
     @y.setter
     def y(self, y):
-        if self.is_value_ok(y):
-           self._y = y
+        try:
+            if self.is_value_ok(y):
+                self._y = y
+        except ValueError as ex:
+            print(ex)
 
     @property
     def side1(self):
@@ -57,8 +68,11 @@ class Rectangle(Common_supershape):
 
     @side1.setter
     def side1(self, side1):
-        if self.is_value_ok(side1):
-            self._side1 = side1
+        try:
+            if self.is_size_value_ok(side1):
+                self._side1 = side1
+        except ValueError as ex:
+            print(ex)
 
     @property
     def side2(self):
@@ -66,5 +80,16 @@ class Rectangle(Common_supershape):
 
     @side2.setter
     def side2(self, side2):
-        if self.is_value_ok(side2):
-            self._side2 = side2
+        try:
+            if self.is_size_value_ok(side2):
+                self._side2 = side2
+        except ValueError as ex:
+            print(ex)
+
+    @property
+    def circumference(self):
+        return 2*self.side2 + 2*self.side1
+    
+    @property
+    def area(self):
+        return self.side2 * self.side1

@@ -13,6 +13,5 @@ This tells pip to install the Python package in the current directory. The ``-e`
 ### Still to do
 * Overloads and overrides
 * Spheres and cubes
-* Drawing the shapes
 * Unit testing
 * Docstrings

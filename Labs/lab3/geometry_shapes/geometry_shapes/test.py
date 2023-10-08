@@ -1,10 +1,10 @@
 from Circle import Circle
 from Rectangle import Rectangle
 import matplotlib.pyplot as plt
-import matplotlib.patches as patches
 
 my_circle = Circle()
 my_circle.translate(5,5)
+my_circle.radius=2
 
 print(my_circle.x, my_circle.y)
 print(my_circle.radius)
@@ -28,6 +28,17 @@ print()
 print(my_circle)
 print(f"{my_circle.is_inside(5.8,5.8) = }")
 
+rec = Rectangle(0,0,5,5)
+cir = Circle(0,0,0)
+
 # Create a figure and axis
 fig, ax = plt.subplots()
 my_circle.draw(ax)
+my_rectangle.draw(ax)
+rec.draw(ax,False)
+ax.set_xlim(-20, 20)
+ax.set_ylim(-20, 20)
+ax.grid(True, linestyle='--', linewidth=0.5, alpha=0.7, color='gray')
+
+plt.gca().set_aspect('equal', adjustable='box')
+plt.show()
