@@ -15,3 +15,4 @@ This tells pip to install the Python package in the current directory. The ``-e`
 * Spheres and cubes
 * Unit testing
 * Docstrings
+* Drawing more independent, perhaps ax subplot() etc in Common supershape class, passing on plt and ax to all children, plt.show() in .draw() ? 
