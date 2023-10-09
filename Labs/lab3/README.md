@@ -11,7 +11,6 @@ To install the geometry_shapes package, navigate inside the top geometry_shapes 
 This tells pip to install the Python package in the current directory. The ``-e`` flag tells pip to install the package in editable mode, which means that any changes you make to the package will be reflected in the installed package.
 
 ### Still to do
-* Overloads and overrides
 * Spheres and cubes
 * Unit testing
 * Docstrings

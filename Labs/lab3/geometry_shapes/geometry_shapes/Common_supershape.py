@@ -1,9 +1,7 @@
+import matplotlib.pyplot as plt
 class Common_supershape:
-    def __init__(self, x=0, y=0, side1=0, side2=0 ) -> None:
-        self.area = 0
-        self.circumference = 0
-        self.x = 0
-        self.y = 0
+    def __init__(self) -> None:
+        pass
 
     def translate(self,x,y):
         self.x = self.x+x
@@ -15,12 +13,12 @@ class Common_supershape:
     def draw(self):
         pass
 
-    def is_value_ok(self, value):
+    def _is_value_ok(self, value):
         if type(value) == int or type(value) == float:
             return True
         else:
             raise ValueError(f"Value '{value}' must be an integer or a float entered as (a) digit(s).")
-    def is_size_value_ok(self, value):
+    def _is_size_value_ok(self, value):
         if (type(value) == int or type(value) == float) and value > 0:
             return True
         else:

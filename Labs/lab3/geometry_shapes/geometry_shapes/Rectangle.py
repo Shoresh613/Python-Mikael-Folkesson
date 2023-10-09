@@ -1,8 +1,10 @@
 from Common_supershape import Common_supershape
 import matplotlib.patches as patches
+from matplotlib.axes._axes import Axes
 
 class Rectangle(Common_supershape):
     def __init__(self, x=0, y=0, side1=1,side2=1):
+        super().__init__()
         self.x = x
         self.y = y
         self.side1 = side1
@@ -19,8 +21,13 @@ class Rectangle(Common_supershape):
     
     def is_square(self):
         return True if self.side1 == self.side2 else False
+    
+    def _check_operand_type(self, other):
+        if not isinstance(other, Rectangle):
+           raise TypeError(f"Usupported operand type(s) for == 'Rectangle' and {type(other)}!")
+        return True
 
-    def draw(self, ax, label=True):
+    def draw(self, ax: Axes, label=True):
         rectangle = patches.Rectangle((self.x, self.y), self.side1, self.side2, fill=False, color='red')
         y = self.y + self.side2/2 if self.side1 > 3 and self.side2 > 2 else (self.y -1.5)
         
@@ -33,33 +40,27 @@ class Rectangle(Common_supershape):
     #######################################
 
     def __repr__(self) -> str:
-        if not isinstance(other, Rectangle):
-           raise TypeError(f"Usupported operand type(s) for == 'Rectangle' and {type(other)}!")
         return f"Rectangle({self.x, self.y, self.side1, self.side2})"
 
     def __str__(self) -> str:
-        if not isinstance(other, Rectangle):
-           raise TypeError(f"Usupported operand type(s) for == 'Rectangle' and {type(other)}!")
         return super().__str__() + f": Center point: {self.x,self.y}, width: {self.side1}, height {self.side2}"
     
     def __eq__(self, other):
-        if not isinstance(other, Rectangle):
-           raise TypeError(f"Usupported operand type(s) for == 'Rectangle' and {type(other)}!")
-        if((self.side1 == other.side1) and (self.side2 == other.side2)):
-            return True
-        else:
-            return False
+        if self._check_operand_type(other):
+            if((self.side1 == other.side1) and (self.side2 == other.side2)):
+                return True
+            else:
+                return False
 
     def __ne__(self, other):
-        if not isinstance(other, Rectangle):
-           raise TypeError(f"Usupported operand type(s) for == 'Rectangle' and {type(other)}!")
-        if((self.side1 == other.side1) and (self.side2 == other.side2)):
-            return False
-        else:
-            return True
+         if self._check_operand_type(other):
+            if((self.side1 == other.side1) and (self.side2 == other.side2)):
+                return False
+            else:
+                return True
 
-# Setters and getters beyond this point
-#######################################
+    # Setters and getters beyond this point
+    #######################################
 
     @property
     def x(self):
@@ -68,7 +69,7 @@ class Rectangle(Common_supershape):
     @x.setter
     def x(self, x):
         try:
-            if self.is_value_ok(x):
+            if self._is_value_ok(x):
                 self._x = x 
         except ValueError as ex:
             print(ex)
@@ -80,7 +81,7 @@ class Rectangle(Common_supershape):
     @y.setter
     def y(self, y):
         try:
-            if self.is_value_ok(y):
+            if self._is_value_ok(y):
                 self._y = y
         except ValueError as ex:
             print(ex)
@@ -92,7 +93,7 @@ class Rectangle(Common_supershape):
     @side1.setter
     def side1(self, side1):
         try:
-            if self.is_size_value_ok(side1):
+            if self._is_size_value_ok(side1):
                 self._side1 = side1
         except ValueError as ex:
             print(ex)
@@ -104,7 +105,7 @@ class Rectangle(Common_supershape):
     @side2.setter
     def side2(self, side2):
         try:
-            if self.is_size_value_ok(side2):
+            if self._is_size_value_ok(side2):
                 self._side2 = side2
         except ValueError as ex:
             print(ex)

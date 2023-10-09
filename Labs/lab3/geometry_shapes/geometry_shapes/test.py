@@ -1,5 +1,6 @@
 from Circle import Circle
 from Rectangle import Rectangle
+from Sphere import Sphere
 import matplotlib.pyplot as plt
 
 my_circle = Circle()
@@ -31,7 +32,10 @@ print(f"{my_circle.is_inside(5.8,5.8) = }")
 rec = Rectangle(0,0,5,5)
 cir = Circle(0,0,0)
 
-print(my_circle==my_second_circle)
+my_sphere = Sphere(0,0,0,1)
+print(my_sphere.is_unity_sphere)
+
+print(my_rectangle==rec)
 
 # Create a figure and axis
 fig, ax = plt.subplots()

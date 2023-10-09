@@ -1,7 +1,7 @@
 from Common_supershape import Common_supershape
 import math
 import matplotlib.patches as patches
-
+from matplotlib.axes._axes import Axes
 
 class Circle(Common_supershape):
     def __init__(self, x=0, y=0, radius=1):
@@ -13,12 +13,17 @@ class Circle(Common_supershape):
             print(ex)
 
     def is_inside(self, x, y):
-        return True if (x - self.x)**2 + (y - self.y)**2 < self.radius**2 else False 
+        return True if (x - self.x)**2 + (y - self.y)**2 <= self.radius**2 else False 
     
     def is_unity_circle(self):
-        return True if self.x == 0 and self.y == 0 and self.radius else False
+        return True if self.x == 0 and self.y == 0 and self.radius == 1 else False
 
-    def draw(self, ax, label=True):
+    def _check_operand_type(self, other):
+        if not isinstance(other, Circle):
+           raise TypeError(f"Usupported operand type(s) for == 'Circle' and {type(other)}!")
+        return True
+
+    def draw(self, ax: Axes, label=True):
         circle = patches.Circle((self.x, self.y), self.radius, fill=False, color='blue')
         if label:
             ax.text(self.x, self.y if self.radius > 3 else (self.y + self.radius + 1.5), f'x:{self.x} y: {self.y} r:{self.radius}', ha='center', va='center', fontsize=8, color='blue')
@@ -26,7 +31,7 @@ class Circle(Common_supershape):
 
     # Dunder methods and operator overloads
     #######################################
-    
+
     def __repr__(self) -> str:
         return f"Circle{self.x, self.y, self.radius}"
     
@@ -34,20 +39,18 @@ class Circle(Common_supershape):
         return super().__str__() + f": Center point: {self.x,self.y}, radius: {self.radius}, circumference: {self.circumference}, area: {self.area}"
         
     def __eq__(self, other):
-        if not isinstance(other, Circle):
-            raise TypeError(f"Usupported operand type(s) for == 'Circle' and {type(other)}!")
-        if(self.radius == other.radius):
-            return True
-        else:
-            return False
+        if self._check_operand_type(other):
+            if(self.radius == other.radius):
+                return True
+            else:
+                return False
 
     def __ne__(self, other):
-        if not isinstance(other, Circle):
-            raise TypeError(f"Usupported operand type(s) for == 'Circle' and {type(other)}!")
-        if(self.radius == other.radius):
-            return False
-        else:
-            return True
+        if self._check_operand_type(other):
+            if(self.radius == other.radius):
+                return False
+            else:
+                return True
 
 # Setters and getters beyond this point
 #######################################
@@ -59,7 +62,7 @@ class Circle(Common_supershape):
     @x.setter
     def x(self, x):
         try:
-            if self.is_value_ok(x):
+            if self._is_value_ok(x):
                 self._x = x
         except ValueError as ex:
             print(ex)
@@ -71,7 +74,7 @@ class Circle(Common_supershape):
     @y.setter
     def y(self, y):
         try:
-            if self.is_value_ok(y):
+            if self._is_value_ok(y):
                 self._y = y
         except ValueError as ex:
             print(ex)
@@ -83,7 +86,7 @@ class Circle(Common_supershape):
     @radius.setter
     def radius(self, radius):
         try:
-            if self.is_size_value_ok(radius):
+            if self._is_size_value_ok(radius):
                 if radius > 0:
                     self._radius = radius
         except ValueError as ex:
