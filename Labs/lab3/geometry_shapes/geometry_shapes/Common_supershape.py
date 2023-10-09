@@ -26,3 +26,37 @@ class Common_supershape:
         else:
             raise ValueError(f"Value '{value}' must be a positive integer or float (>0) entered as (a) digit(s).")
 
+    # Comparison operator overloads
+    ###############################
+
+    def __gt__(self, other):
+        if not isinstance(other, Common_supershape):
+            raise TypeError(f"Usupported operand type(s) for > 'Common_supershape' and {type(other)}!")
+        if(self.circumference>other.circumference):
+            return True
+        else:
+            return False
+
+    def __lt__(self, other):
+        if not isinstance(other, Common_supershape):
+            raise TypeError(f"Usupported operand type(s) for > 'Common_supershape' and {type(other)}!")
+        if(self.circumference>other.circumference):
+            return True
+        else:
+            return False
+
+    def __ge__(self, other):
+        if not isinstance(other, Common_supershape):
+            raise TypeError(f"Usupported operand type(s) for > 'Common_supershape' and {type(other)}!")
+        if(self.circumference>=other.circumference):
+            return True
+        else:
+            return False
+
+    def __le__(self, other):
+        if not isinstance(other, Common_supershape):
+            raise TypeError(f"Usupported operand type(s) for > 'Common_supershape' and {type(other)}!")
+        if(self.circumference>=other.circumference):
+            return True
+        else:
+            return False

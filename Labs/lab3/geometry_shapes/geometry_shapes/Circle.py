@@ -18,19 +18,36 @@ class Circle(Common_supershape):
     def is_unity_circle(self):
         return True if self.x == 0 and self.y == 0 and self.radius else False
 
-    def __repr__(self) -> str:
-        return f"Circle{self.x, self.y, self.radius}"
-    
-    def __str__(self) -> str:
-        return super().__str__() + f": Center point: {self.x,self.y}, radius: {self.radius}, circumference: {self.circumference}, area: {self.area}"
-    
     def draw(self, ax, label=True):
-        # Plot a circle using Matplotlib
         circle = patches.Circle((self.x, self.y), self.radius, fill=False, color='blue')
         if label:
             ax.text(self.x, self.y if self.radius > 3 else (self.y + self.radius + 1.5), f'x:{self.x} y: {self.y} r:{self.radius}', ha='center', va='center', fontsize=8, color='blue')
         ax.add_patch(circle)
 
+    # Dunder methods and operator overloads
+    #######################################
+    
+    def __repr__(self) -> str:
+        return f"Circle{self.x, self.y, self.radius}"
+    
+    def __str__(self) -> str:
+        return super().__str__() + f": Center point: {self.x,self.y}, radius: {self.radius}, circumference: {self.circumference}, area: {self.area}"
+        
+    def __eq__(self, other):
+        if not isinstance(other, Circle):
+            raise TypeError(f"Usupported operand type(s) for == 'Circle' and {type(other)}!")
+        if(self.radius == other.radius):
+            return True
+        else:
+            return False
+
+    def __ne__(self, other):
+        if not isinstance(other, Circle):
+            raise TypeError(f"Usupported operand type(s) for == 'Circle' and {type(other)}!")
+        if(self.radius == other.radius):
+            return False
+        else:
+            return True
 
 # Setters and getters beyond this point
 #######################################

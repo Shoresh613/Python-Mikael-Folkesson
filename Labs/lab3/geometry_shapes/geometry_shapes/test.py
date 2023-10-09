@@ -31,6 +31,8 @@ print(f"{my_circle.is_inside(5.8,5.8) = }")
 rec = Rectangle(0,0,5,5)
 cir = Circle(0,0,0)
 
+print(my_circle==my_second_circle)
+
 # Create a figure and axis
 fig, ax = plt.subplots()
 my_circle.draw(ax)

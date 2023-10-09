@@ -20,12 +20,6 @@ class Rectangle(Common_supershape):
     def is_square(self):
         return True if self.side1 == self.side2 else False
 
-    def __repr__(self) -> str:
-        return f"Rectangle({self.x, self.y, self.side1, self.side2})"
-
-    def __str__(self) -> str:
-        return super().__str__() + f": Center point: {self.x,self.y}, width: {self.side1}, height {self.side2}"
-
     def draw(self, ax, label=True):
         rectangle = patches.Rectangle((self.x, self.y), self.side1, self.side2, fill=False, color='red')
         y = self.y + self.side2/2 if self.side1 > 3 and self.side2 > 2 else (self.y -1.5)
@@ -34,6 +28,35 @@ class Rectangle(Common_supershape):
             ax.text(self.x+self.side1/2, y, f'x:{self.x} y: {self.y}\nw:{self.side1} h:{self.side2}', 
                     ha='center', va='center', fontsize=8, color='red')
         ax.add_patch(rectangle)
+    
+    # Dunder methods and operator overloads
+    #######################################
+
+    def __repr__(self) -> str:
+        if not isinstance(other, Rectangle):
+           raise TypeError(f"Usupported operand type(s) for == 'Rectangle' and {type(other)}!")
+        return f"Rectangle({self.x, self.y, self.side1, self.side2})"
+
+    def __str__(self) -> str:
+        if not isinstance(other, Rectangle):
+           raise TypeError(f"Usupported operand type(s) for == 'Rectangle' and {type(other)}!")
+        return super().__str__() + f": Center point: {self.x,self.y}, width: {self.side1}, height {self.side2}"
+    
+    def __eq__(self, other):
+        if not isinstance(other, Rectangle):
+           raise TypeError(f"Usupported operand type(s) for == 'Rectangle' and {type(other)}!")
+        if((self.side1 == other.side1) and (self.side2 == other.side2)):
+            return True
+        else:
+            return False
+
+    def __ne__(self, other):
+        if not isinstance(other, Rectangle):
+           raise TypeError(f"Usupported operand type(s) for == 'Rectangle' and {type(other)}!")
+        if((self.side1 == other.side1) and (self.side2 == other.side2)):
+            return False
+        else:
+            return True
 
 # Setters and getters beyond this point
 #######################################
