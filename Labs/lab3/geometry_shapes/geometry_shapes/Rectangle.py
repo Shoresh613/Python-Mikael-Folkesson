@@ -1,16 +1,16 @@
 from Common_supershape import Common_supershape
+from typing import Union
 import matplotlib.patches as patches
 from matplotlib.axes._axes import Axes
 
 class Rectangle(Common_supershape):
-    def __init__(self, x=0, y=0, side1=1,side2=1):
-        super().__init__()
+    def __init__(self, x=0, y=0, side1=1, side2=1):
         self.x = x
         self.y = y
         self.side1 = side1
         self.side2 = side2
     
-    def is_inside(self, x, y):
+    def is_inside(self, x, y) -> bool:
         if self.x - self.side1 / 2 <= x <= self.x + self.side1 / 2:
             if self.y - self.side2 / 2 <= y <= self.y + self.side2 / 2:
                 return True
@@ -19,15 +19,15 @@ class Rectangle(Common_supershape):
         else:
            return False 
     
-    def is_square(self):
+    def is_square(self) -> bool:
         return True if self.side1 == self.side2 else False
     
-    def _check_operand_type(self, other):
+    def _check_operand_type(self, other) -> bool:
         if not isinstance(other, Rectangle):
            raise TypeError(f"Usupported operand type(s) for == 'Rectangle' and {type(other)}!")
         return True
 
-    def draw(self, ax: Axes, label=True):
+    def draw(self, ax: Axes, label=True) -> None:
         rectangle = patches.Rectangle((self.x, self.y), self.side1, self.side2, fill=False, color='red')
         y = self.y + self.side2/2 if self.side1 > 3 and self.side2 > 2 else (self.y -1.5)
         
@@ -45,14 +45,14 @@ class Rectangle(Common_supershape):
     def __str__(self) -> str:
         return super().__str__() + f": Center point: {self.x,self.y}, width: {self.side1}, height {self.side2}"
     
-    def __eq__(self, other):
+    def __eq__(self, other) -> bool:
         if self._check_operand_type(other):
             if((self.side1 == other.side1) and (self.side2 == other.side2)):
                 return True
             else:
                 return False
 
-    def __ne__(self, other):
+    def __ne__(self, other) -> bool:
          if self._check_operand_type(other):
             if((self.side1 == other.side1) and (self.side2 == other.side2)):
                 return False
@@ -63,7 +63,7 @@ class Rectangle(Common_supershape):
     #######################################
 
     @property
-    def x(self):
+    def x(self) -> Union[int,float]:
         return self._x
 
     @x.setter
@@ -75,7 +75,7 @@ class Rectangle(Common_supershape):
             print(ex)
 
     @property
-    def y(self):
+    def y(self) -> Union[int,float]:
         return self._y
 
     @y.setter
@@ -87,7 +87,7 @@ class Rectangle(Common_supershape):
             print(ex)
 
     @property
-    def side1(self):
+    def side1(self) -> Union[int,float]:
         return self._side1
 
     @side1.setter
@@ -99,7 +99,7 @@ class Rectangle(Common_supershape):
             print(ex)
 
     @property
-    def side2(self):
+    def side2(self) -> Union[int,float]:
         return self._side2
 
     @side2.setter
@@ -111,9 +111,9 @@ class Rectangle(Common_supershape):
             print(ex)
 
     @property
-    def circumference(self):
+    def circumference(self) -> Union[int,float]:
         return 2*self.side2 + 2*self.side1
     
     @property
-    def area(self):
+    def area(self) -> Union[int,float]:
         return self.side2 * self.side1

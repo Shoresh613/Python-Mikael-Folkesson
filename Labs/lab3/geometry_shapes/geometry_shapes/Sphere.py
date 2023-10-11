@@ -1,7 +1,11 @@
 from Common_supershape import Common_supershape
+from typing import Union
 import math
-import matplotlib.patches as patches
-from matplotlib.axes._axes import Axes
+
+# 3D plotting of the sphere
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+import numpy as np
 
 class Sphere(Common_supershape):
     def __init__(self, x=0, y=0, z=0, radius=1):
@@ -25,11 +29,22 @@ class Sphere(Common_supershape):
            raise TypeError(f"Usupported operand type(s) for == 'Sphere' and {type(other)}!")
         return True
 
-    def draw(self, ax: Axes, label=True):
-        circle = patches.circle((self.x, self.y), self.radius, fill=False, color='blue')
-        if label:
-            ax.text(self.x, self.y if self.radius > 3 else (self.y + self.radius + 1.5), f'x:{self.x} y: {self.y} r:{self.radius}', ha='center', va='center', fontsize=8, color='blue')
-        ax.add_patch(circle)
+    def draw(self, ax3D:Axes3D, label=True) -> None:
+
+        # Sphere parameters
+        center = (self.x, self.y, self.z)
+        radius = self.radius
+
+        # Create a sphere
+        u = np.linspace(0, 2 * np.pi, 100)
+        v = np.linspace(0, np.pi, 100)
+        x = center[0] + radius * np.outer(np.cos(u), np.sin(v))
+        y = center[1] + radius * np.outer(np.sin(u), np.sin(v))
+        z = center[2] + radius * np.outer(np.ones(np.size(u)), np.cos(v))
+
+        # Plot the sphere
+        ax3D.plot_surface(x, y, z, color='b', alpha=0.5)
+
 
     # Dunder methods and operator overloads
     #######################################
@@ -40,14 +55,14 @@ class Sphere(Common_supershape):
     def __str__(self) -> str:
         return super().__str__() + f": Center point: {self.x,self.y}, radius: {self.radius}, circumference: {self.circumference}, area: {self.area}"
         
-    def __eq__(self, other):
+    def __eq__(self, other)  -> bool:
         if self._check_operand_type(other):
             if(self.radius == other.radius):
                 return True
             else:
                 return False
 
-    def __ne__(self, other):
+    def __ne__(self, other)  -> bool:
         if self._check_operand_type(other):
             if(self.radius == other.radius):
                 return False
@@ -58,58 +73,58 @@ class Sphere(Common_supershape):
 #######################################
 
     @property
-    def x(self):
+    def x(self) -> Union[int,float]:
         return self._x
 
     @x.setter
     def x(self, x):
         try:
-            if self.is_value_ok(x):
+            if self._is_value_ok(x):
                 self._x = x
         except ValueError as ex:
             print(ex)
 
     @property
-    def y(self):
+    def y(self) -> Union[int,float]:
         return self._y
 
     @y.setter
     def y(self, y):
         try:
-            if self.is_value_ok(y):
+            if self._is_value_ok(y):
                 self._y = y
         except ValueError as ex:
             print(ex)
 
     @property
-    def z(self):
+    def z(self) -> Union[int,float]:
         return self._z
 
     @z.setter
     def z(self, z):
         try:
-            if self.is_value_ok(z):
+            if self._is_value_ok(z):
                 self._z = z
         except ValueError as ex:
             print(ex)
 
     @property
-    def radius(self):
+    def radius(self) -> Union[int,float]:
         return self._radius
 
     @radius.setter
     def radius(self, radius):
         try:
-            if self.is_size_value_ok(radius):
+            if self._is_size_value_ok(radius):
                 if radius > 0:
                     self._radius = radius
         except ValueError as ex:
             print(ex)
 
     @property
-    def circumference(self):
+    def circumference(self) -> float:
         return 2*math.pi*self.radius
     
     @property
-    def area(self):
+    def area(self) -> float:
         return math.pi*(self.radius**2)

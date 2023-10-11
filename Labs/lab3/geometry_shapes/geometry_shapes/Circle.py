@@ -1,10 +1,11 @@
 from Common_supershape import Common_supershape
+from typing import Union
 import math
 import matplotlib.patches as patches
 from matplotlib.axes._axes import Axes
 
 class Circle(Common_supershape):
-    def __init__(self, x=0, y=0, radius=1):
+    def __init__(self, x=0, y=0, radius=1) -> None:
         try:
             self.x = x
             self.y = y
@@ -12,18 +13,18 @@ class Circle(Common_supershape):
         except ValueError as ex:
             print(ex)
 
-    def is_inside(self, x, y):
+    def is_inside(self, x, y) -> bool:
         return True if (x - self.x)**2 + (y - self.y)**2 <= self.radius**2 else False 
     
-    def is_unity_circle(self):
+    def is_unity_circle(self) -> bool:
         return True if self.x == 0 and self.y == 0 and self.radius == 1 else False
 
-    def _check_operand_type(self, other):
+    def _check_operand_type(self, other) -> bool:
         if not isinstance(other, Circle):
            raise TypeError(f"Usupported operand type(s) for == 'Circle' and {type(other)}!")
         return True
 
-    def draw(self, ax: Axes, label=True):
+    def draw(self, ax: Axes, label=True) -> None:
         circle = patches.Circle((self.x, self.y), self.radius, fill=False, color='blue')
         if label:
             ax.text(self.x, self.y if self.radius > 3 else (self.y + self.radius + 1.5), f'x:{self.x} y: {self.y} r:{self.radius}', ha='center', va='center', fontsize=8, color='blue')
@@ -38,14 +39,14 @@ class Circle(Common_supershape):
     def __str__(self) -> str:
         return super().__str__() + f": Center point: {self.x,self.y}, radius: {self.radius}, circumference: {self.circumference}, area: {self.area}"
         
-    def __eq__(self, other):
+    def __eq__(self, other) -> bool:
         if self._check_operand_type(other):
             if(self.radius == other.radius):
                 return True
             else:
                 return False
 
-    def __ne__(self, other):
+    def __ne__(self, other) -> bool:
         if self._check_operand_type(other):
             if(self.radius == other.radius):
                 return False
@@ -56,7 +57,7 @@ class Circle(Common_supershape):
 #######################################
 
     @property
-    def x(self):
+    def x(self) -> Union[int,float]:
         return self._x
 
     @x.setter
@@ -68,7 +69,7 @@ class Circle(Common_supershape):
             print(ex)
 
     @property
-    def y(self):
+    def y(self) -> Union[int,float]:
         return self._y
 
     @y.setter
@@ -80,7 +81,7 @@ class Circle(Common_supershape):
             print(ex)
 
     @property
-    def radius(self):
+    def radius(self) -> Union[int,float]:
         return self._radius
 
     @radius.setter
@@ -93,9 +94,9 @@ class Circle(Common_supershape):
             print(ex)
 
     @property
-    def circumference(self):
+    def circumference(self) -> Union[int,float]:
         return 2*math.pi*self.radius
     
     @property
-    def area(self):
+    def area(self) -> Union[int,float]:
         return math.pi*(self.radius**2)
