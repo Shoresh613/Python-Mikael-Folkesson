@@ -45,15 +45,14 @@ class Sphere(Common_supershape):
         # Plot the sphere
         ax3D.plot_surface(x, y, z, color='b', alpha=0.5)
 
-
     # Dunder methods and operator overloads
     #######################################
 
     def __repr__(self) -> str:
-        return f"Circle{self.x, self.y, self.radius}"
+        return f"Circle{self.x, self.y, self.z, self.radius}"
     
     def __str__(self) -> str:
-        return super().__str__() + f": Center point: {self.x,self.y}, radius: {self.radius}, circumference: {self.circumference}, area: {self.area}"
+        return super().__str__() + f": Center point: {self.x,self.y,self.z}, radius: {self.radius}, circumference: {self.circumference}, area: {self.area}"
         
     def __eq__(self, other)  -> bool:
         if self._check_operand_type(other):
@@ -127,4 +126,8 @@ class Sphere(Common_supershape):
     
     @property
     def area(self) -> float:
-        return math.pi*(self.radius**2)
+        return  4*math.pi*self.radius**2
+    
+    @property
+    def volume(self) -> float:
+        return  (4/3) * math.pi * self.radius**3

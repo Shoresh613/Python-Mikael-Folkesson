@@ -1,6 +1,7 @@
 from Circle import Circle
 from Rectangle import Rectangle
 from Sphere import Sphere
+from Cube import Cube
 import matplotlib.pyplot as plt
 
 # 3D plotting of the sphere
@@ -43,8 +44,10 @@ ax3D = fig3D.add_subplot(111, projection='3d')
 
 my_sphere = Sphere(0,0,0,2)
 my_sphere.draw(ax3D)
-my_second_sphere = Sphere(1,1,1,3)
+my_second_sphere = Sphere(10,10,10,5)
 my_second_sphere.draw(ax3D)
+my_cube = Cube(-10,-10, -10,8,8,8)
+my_cube.draw(ax3D)
 
 # Set axis limits to ensure correct scaling
 ax3D.set_xlim(-20, +20)

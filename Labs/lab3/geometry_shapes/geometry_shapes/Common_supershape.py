@@ -3,9 +3,11 @@ class Common_supershape:
     def __init__(self) -> None:
         pass
 
-    def translate(self,x,y):
+    def translate(self, x, y, *args):
         self.x = self.x+x
-        self.y = self.y+y
+        self.y = self.y+y        
+        if len(args) == 1:
+            self.z = self.z+args
 
     def is_inside(self, x,y):
         pass
