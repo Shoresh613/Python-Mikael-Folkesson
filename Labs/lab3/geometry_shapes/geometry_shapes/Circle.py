@@ -6,7 +6,7 @@ from matplotlib.axes._axes import Axes
 
 class Circle(Common_supershape):
     """
-    A class representing a circle in 2D space.
+    A class representing a circle in 2D space. Inherits from Common_supershape.
 
     Attributes:
         x ([int | float]): The x-coordinate of the circle's center.
