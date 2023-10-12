@@ -1,5 +1,3 @@
-import matplotlib.pyplot as plt
-
 class Common_supershape:
     """
     A common base class for various 2D and 3D geometric shapes.
@@ -88,68 +86,68 @@ class Common_supershape:
 
     def __gt__(self, other):
         """
-        Check if the circumference of the current shape is greater than the circumference of another shape.
+        Check if the area of the current shape is greater than the area of another shape.
 
         Args:
             other: The other shape to compare to.
 
         Returns:
-            bool: True if the current shape's circumference is greater, False otherwise.
+            bool: True if the current shape's area is greater, False otherwise.
         """
         if not isinstance(other, Common_supershape):
             raise TypeError(f"Unsupported operand type(s) for > 'Common_supershape' and {type(other)}!")
-        if self.circumference > other.circumference:
+        if self.area > other.area:
             return True
         else:
             return False
 
     def __lt__(self, other):
         """
-        Check if the circumference of the current shape is less than the circumference of another shape.
+        Check if the area of the current shape is less than the area of another shape.
 
         Args:
             other: The other shape to compare to.
 
         Returns:
-            bool: True if the current shape's circumference is less, False otherwise.
+            bool: True if the current shape's area is less, False otherwise.
         """
         if not isinstance(other, Common_supershape):
             raise TypeError(f"Unsupported operand type(s) for > 'Common_supershape' and {type(other)}!")
-        if self.circumference < other.circumference:
+        if self.area < other.area:
             return True
         else:
             return False
 
     def __ge__(self, other):
         """
-        Check if the circumference of the current shape is greater than or equal to the circumference of another shape.
+        Check if the area of the current shape is greater than or equal to the area of another shape.
 
         Args:
             other: The other shape to compare to.
 
         Returns:
-            bool: True if the current shape's circumference is greater than or equal, False otherwise.
+            bool: True if the current shape's area is greater than or equal, False otherwise.
         """
         if not isinstance(other, Common_supershape):
             raise TypeError(f"Unsupported operand type(s) for > 'Common_supershape' and {type(other)}!")
-        if self.circumference >= other.circumference:
+        if self.area >= other.area:
             return True
         else:
             return False
 
     def __le__(self, other):
         """
-        Check if the circumference of the current shape is less than or equal to the circumference of another shape.
+        Check if the area of the current shape is less than or equal to the area of another shape.
 
         Args:
             other: The other shape to compare to.
 
         Returns:
-            bool: True if the current shape's circumference is less than or equal, False otherwise.
+            bool: True if the current shape's area is less than or equal, False otherwise.
         """
         if not isinstance(other, Common_supershape):
             raise TypeError(f"Unsupported operand type(s) for > 'Common_supershape' and {type(other)}!")
-        if self.circumference <= other.circumference:
+        if self.area <= other.area:
             return True
         else:
             return False

@@ -4,7 +4,29 @@ from mpl_toolkits.mplot3d import Axes3D
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
 class Cube(Common_supershape):
+    """
+    A class representing a 3D cube.
+
+    Attributes:
+        x ([int | float]): The x-coordinate of the cube's center.
+        y ([int | float]): The y-coordinate of the cube's center.
+        z ([int | float]): The z-coordinate of the cube's center.
+        width ([int | float]): The width of the cube.
+        height ([int | float]): The height of the cube.
+        depth ([int | float]): The depth of the cube.
+    """
     def __init__(self, x=0, y=0,  z=0, width=1, height=1, depth=1):
+        """
+        Initialize a 3D cube.
+
+        Args:
+            x ([int | float]): The x-coordinate of the cube's center.
+            y ([int | float]): The y-coordinate of the cube's center.
+            z ([int | float]): The z-coordinate of the cube's center.
+            width ([int | float]): The width of the cube.
+            height ([int | float]): The height of the cube.
+            depth ([int | float]): The depth of the cube.
+        """
         self.x = x
         self.y = y
         self.z = z
@@ -13,6 +35,17 @@ class Cube(Common_supershape):
         self.depth = depth
     
     def is_inside(self, x, y, z) -> bool:
+        """
+        Check if a point is inside the cube.
+
+        Args:
+            x ([int | float]): The x-coordinate of the point.
+            y ([int | float]): The y-coordinate of the point.
+            z ([int | float]): The z-coordinate of the point.
+
+        Returns:
+            bool: True if the point is inside the cube, False otherwise.
+        """
         half_width, half_height, half_depth = self.width / 2, self.height / 2, self.depth / 2
 
         x_in_range = self.x - half_width <= x <= self.x + half_width
@@ -22,17 +55,48 @@ class Cube(Common_supershape):
         return x_in_range and y_in_range and z_in_range
         
     def is_square(self) -> bool:
+        """
+        Check if the cube is a square (equal width, height, and depth).
+
+        Returns:
+            bool: True if the cube is a square, False otherwise.
+        """
         return True if self.width == self.height == self.depth else False
 
     def is_unity_cube(self) -> bool:
-        return True if self.x == 0 and self.y == 0 and self.z == 0 and self.width == 1 and self.height == 1 and self.width == 1 else False
+        """
+        Check if the cube is a unity cube (centered at the origin and with equal dimensions).
+
+        Returns:
+            bool: True if the cube is a unity cube, False otherwise.
+        """
+        return True if self.x == 0 and self.y == 0 and self.z == 0 and self.width == 1 and self.height == 1 and self.depth == 1 else False
     
     def _check_operand_type(self, other) -> bool:
+        """
+        Check if the operand type is valid for comparison.
+
+        Args:
+            other: The object to compare.
+
+        Returns:
+            bool: True if the operand type is valid, raises TypeError otherwise.
+        """
         if not isinstance(other, Cube):
-           raise TypeError(f"Usupported operand type(s) for == 'Cube' and {type(other)}!")
+           raise TypeError(f"Unsupported operand type(s) for == 'Cube' and {type(other)}!")
         return True
 
     def draw(self, ax3D: Axes3D, label=True) -> None:
+        """
+        Draw the 3D cube on a given Axes3D.
+
+        Args:
+            ax3D (Axes3D): The 3D axes on which to draw the cube.
+            label (bool): Whether to label the cube (not yet implemented).
+
+        Returns:
+            None
+        """
         # Asked ChatGPT how to adapt the sphere drawing method to a cube drawing method
         center = (self.x, self.y, self.z)
         width = self.width
@@ -169,8 +233,8 @@ class Cube(Common_supershape):
 
     @property
     def circumference(self) -> Union[int,float]:
-        return 2*self.side2 + 2*self.side1
+        return 4 * (self.width + self.height + self.depth)
     
     @property
     def area(self) -> Union[int,float]:
-        return self.side2 * self.side1
+        return 2 * (self.width * self.height + self.height * self.depth + self.depth * self.width)

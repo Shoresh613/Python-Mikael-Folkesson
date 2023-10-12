@@ -1,13 +1,19 @@
 from Common_supershape import Common_supershape
 from typing import Union
+from mpl_toolkits.mplot3d import Axes3D
+import numpy as np
 import math
 
-# 3D plotting of the sphere
-from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.pyplot as plt
-import numpy as np
-
 class Sphere(Common_supershape):
+    """
+    A class representing a 3D sphere.
+
+    Attributes:
+        x ([int | float]): The x-coordinate of the sphere's center.
+        y ([int | float]): The y-coordinate of the sphere's center.
+        z ([int | float]): The z-coordinate of the sphere's center.
+        radius ([int | float]): The radius of the sphere.
+    """
     def __init__(self, x=0, y=0, z=0, radius=1):
         try:
             self.x = x
@@ -18,19 +24,54 @@ class Sphere(Common_supershape):
             print(ex)
 
     # Asked ChatGPT for the formula to check whether a point is inside a sphere
-    def is_inside(self, x, y, z):
+    def is_inside(self, x, y, z) -> bool:
+        """
+        Check if a point is inside the sphere.
+
+        Args:
+            x ([int | float]): The x-coordinate of the point.
+            y ([int | float]): The y-coordinate of the point.
+            z ([int | float]): The z-coordinate of the point.
+
+        Returns:
+            bool: True if the point is inside the sphere, False otherwise.
+        """
         return True if math.sqrt(sum((p - c) ** 2 for p, c in zip((x,y,z), (self.x,self.y,self.z)))) <= self.radius**2 else False 
     
-    def is_unity_sphere(self):
+    def is_unity_sphere(self) -> bool:
+        """
+        Check if the sphere is a unity sphere.
+
+        Returns:
+            bool: True if the sphere is a unity sphere, False otherwise.
+        """
         return True if self.x == 0 and self.y == 0 and self.z == 0 and self.radius == 1 else False
 
-    def _check_operand_type(self, other):
+    def _check_operand_type(self, other) -> bool:
+        """
+        Check if the operand type is valid for comparison.
+
+        Args:
+            other: The object to compare.
+
+        Returns:
+            bool: True if the operand type is valid, raises TypeError otherwise.
+        """
         if not isinstance(other, Sphere):
-           raise TypeError(f"Usupported operand type(s) for == 'Sphere' and {type(other)}!")
+           raise TypeError(f"Unsupported operand type(s) for == 'Sphere' and {type(other)}!")
         return True
 
     def draw(self, ax3D:Axes3D, label=True) -> None:
+        """
+        Draw the 3D sphere on a given Axes3D.
 
+        Args:
+            ax3D (Axes3D): The 3D axes on which to draw the sphere.
+            label (bool): Whether to label the sphere (not implemented).
+
+        Returns:
+            None
+        """
         # Sphere parameters
         center = (self.x, self.y, self.z)
         radius = self.radius
@@ -49,12 +90,21 @@ class Sphere(Common_supershape):
     #######################################
 
     def __repr__(self) -> str:
-        return f"Circle{self.x, self.y, self.z, self.radius}"
+        return f"Sphere{self.x, self.y, self.z, self.radius}"
     
     def __str__(self) -> str:
         return super().__str__() + f": Center point: {self.x,self.y,self.z}, radius: {self.radius}, circumference: {self.circumference}, area: {self.area}"
         
     def __eq__(self, other)  -> bool:
+        """
+        Check if two spheres are of equal size.
+
+        Args:
+            other: The object to compare.
+
+        Returns:
+            bool: True if the spheres are equal, False otherwise.
+        """
         if self._check_operand_type(other):
             if(self.radius == other.radius):
                 return True
@@ -62,6 +112,15 @@ class Sphere(Common_supershape):
                 return False
 
     def __ne__(self, other)  -> bool:
+        """
+        Check if two spheres are not of equal size.
+
+        Args:
+            other: The object to compare.
+
+        Returns:
+            bool: True if the spheres are not equal, False otherwise.
+        """
         if self._check_operand_type(other):
             if(self.radius == other.radius):
                 return False
