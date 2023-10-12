@@ -1,4 +1,4 @@
-from Common_supershape import Common_supershape
+from .Common_supershape import Common_supershape
 from typing import Union
 from mpl_toolkits.mplot3d import Axes3D
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
@@ -136,21 +136,21 @@ class Cube(Common_supershape):
     #######################################
 
     def __repr__(self) -> str:
-        return f"Cube({self.x, self.y, self.side1, self.side2})"
+        return f"Cube({self.x, self.y, self.z, self.width, self.height, self.depth})"
 
     def __str__(self) -> str:
-        return super().__str__() + f": Center point: {self.x,self.y}, width: {self.side1}, height {self.side2}"
+        return super().__str__() + f": Center point: {self.x,self.y,self.z}, width: {self.width}, height {self.height}, depth {self.depth}"
     
     def __eq__(self, other) -> bool:
         if self._check_operand_type(other):
-            if((self.side1 == other.side1) and (self.side2 == other.side2)):
+            if((self.width == other.width) and (self.height == other.height) and (self.depth == other.depth)):
                 return True
             else:
                 return False
 
     def __ne__(self, other) -> bool:
          if self._check_operand_type(other):
-            if((self.side1 == other.side1) and (self.side2 == other.side2)):
+            if((self.width == other.width) and (self.height == other.height) and (self.depth == other.depth)):
                 return False
             else:
                 return True
@@ -230,7 +230,6 @@ class Cube(Common_supershape):
         except ValueError as ex:
             print(ex)
 
-
     @property
     def circumference(self) -> Union[int,float]:
         return 4 * (self.width + self.height + self.depth)
@@ -238,3 +237,7 @@ class Cube(Common_supershape):
     @property
     def area(self) -> Union[int,float]:
         return 2 * (self.width * self.height + self.height * self.depth + self.depth * self.width)
+
+    @property
+    def volume(self) -> Union[int,float]:
+        return self.width * self.height * self.depth

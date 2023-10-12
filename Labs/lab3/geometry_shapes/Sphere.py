@@ -1,4 +1,4 @@
-from Common_supershape import Common_supershape
+from .Common_supershape import Common_supershape
 from typing import Union
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
