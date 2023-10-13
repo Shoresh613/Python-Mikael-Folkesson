@@ -113,14 +113,15 @@ class Rectangle(Shape):
         Returns:
             bool: True if the sides of the two rectangles are equal, False otherwise.
         """
-        if self._check_operand_type(Rectangle, other):
-            if (self.side1 == other.side1) and (self.side2 == other.side2):
-                return True
-            else:
-                return False
-        else:
+        try:
+            if self._check_operand_type(self, other):
+                if (self.side1 == other.side1) and (self.side2 == other.side2):
+                    return True
+                else:
+                    return False
+        except TypeError as ex:
+            print(ex)
             return False
-
     def __ne__(self, other) -> bool:
         """
         Check if two Rectangle objects are not equal.
@@ -131,14 +132,16 @@ class Rectangle(Shape):
         Returns:
             bool: True if the sides of the two rectangles are not equal, False otherwise.
         """
-        if self._check_operand_type(Rectangle, other):
-            if (self.side1 == other.side1) and (self.side2 == other.side2):
-                return False
-            else:
-                return True
-        else:
+        try:
+            if self._check_operand_type(self, other):
+                if (self.side1 == other.side1) and (self.side2 == other.side2):
+                    return False
+                else:
+                    return True
+        except TypeError as ex:
+            print(ex)
             return False
-
+        
     # Setters and getters beyond this point
     #######################################
 

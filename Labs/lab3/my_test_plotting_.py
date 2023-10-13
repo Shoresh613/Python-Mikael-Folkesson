@@ -21,7 +21,7 @@ my_rectangle.translate(-5,5)
 
 print(f"{my_circle == my_rectangle}")
 
-my_circle.translate("TRE",5)
+# my_circle.translate("TRE",5)
 
 print(my_rectangle)
 
@@ -65,7 +65,7 @@ plt.show()
 
 print(f"\nSPHERE:\n{my_sphere.is_inside(-5,-2, 0) =}")
 print(f"\n{my_sphere.is_unity_sphere() =}\n")
-print(my_rectangle==rec)
+print(f"{my_rectangle==rec =}")
 
 # 2D plotting: Create a figure and axis
 #######################################

@@ -91,13 +91,14 @@ class Sphere(Shape):
         Returns:
             bool: True if the spheres are equal, False otherwise.
         """
-        if self._check_operand_type(Sphere, other):
-            if(self.radius == other.radius):
-                return True
-            else:
-                return False
-        else:
-            return False
+        try:
+            if self._check_operand_type(self, other):
+                if(self.radius == other.radius):
+                    return True
+                else:
+                    return False
+        except TypeError as ex:
+            print(ex)
 
     def __ne__(self, other)  -> bool:
         """
@@ -109,13 +110,15 @@ class Sphere(Shape):
         Returns:
             bool: True if the spheres are not equal, False otherwise.
         """
-        if self._check_operand_type(Sphere, other):
-            if(self.radius == other.radius):
-                return False
-            else:
-                return True
-        else:
-            return False
+        try:
+            if self._check_operand_type(self, other):
+                if(self.radius == other.radius):
+                    return False
+                else:
+                    return True
+        except TypeError as ex:
+            print(ex)
+
 
 # Setters and getters beyond this point
 #######################################

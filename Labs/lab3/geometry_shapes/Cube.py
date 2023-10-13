@@ -135,29 +135,62 @@ class Cube(Shape):
     #######################################
 
     def __repr__(self) -> str:
+        """
+        Return a string representation of the Cube object.
+
+        Returns:
+            str: A string representing the Cube in the format "Cube(x, y, z, width, height, depth)".
+        """
         return f"Cube({self.x, self.y, self.z, self.width, self.height, self.depth})"
 
     def __str__(self) -> str:
+        """
+        Return a human-readable string representation of the Cube object.
+
+        Returns:
+            str: A string providing information about the Cube, including its center point and dimensions.
+        """
         return super().__str__() + f": Center point: {self.x,self.y,self.z}, width: {self.width}, height {self.height}, depth {self.depth}"
     
     def __eq__(self, other) -> bool:
-        if self._check_operand_type(Cube, other):
-            if((self.width == other.width) and (self.height == other.height) and (self.depth == other.depth)):
-                return True
-            else:
-                return False
-        else:
-            return False
+        """
+        Compare the Cube with another object for equality.
 
+        Args:
+            other: The object to compare with the Cube.
+
+        Returns:
+            bool: True if the Cube is equal to the other object in terms of width, height, and depth; False otherwise.
+        """
+        try:
+            if self._check_operand_type(self, other):
+                if((self.width == other.width) and (self.height == other.height) and (self.depth == other.depth)):
+                    return True
+                else:
+                    return False
+        except TypeError as ex:
+            print(ex)
+            return False
+        
     def __ne__(self, other) -> bool:
-        if self._check_operand_type(Cube, other):
-            if((self.width == other.width) and (self.height == other.height) and (self.depth == other.depth)):
-                return False
-            else:
-                return True
-        else:
-            return False
+        """
+        Compare the Cube with another object for inequality.
 
+        Args:
+            other: The object to compare with the Cube.
+
+        Returns:
+            bool: True if the Cube is not equal to the other object in terms of width, height, or depth; False otherwise.
+        """
+        try:
+            if self._check_operand_type(self, other):
+                if((self.width == other.width) and (self.height == other.height) and (self.depth == other.depth)):
+                    return False
+                else:
+                    return True
+        except TypeError as ex:
+            print(ex)
+            return False
     # Setters and getters beyond this point
     #######################################
 

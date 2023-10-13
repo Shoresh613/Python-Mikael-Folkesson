@@ -101,12 +101,14 @@ class Circle(Shape):
         Returns:
             bool: True if the radii of the two circles are equal, False otherwise.
         """
-        if self._check_operand_type(Circle,other):
-            if(self.radius == other.radius):
-                return True
-            else:
-                return False
-        else:
+        try:
+            if self._check_operand_type(self,other):
+                if(self.radius == other.radius):
+                    return True
+                else:
+                    return False
+        except TypeError as ex:
+            print(ex)
             return False
 
     def __ne__(self, other) -> bool:
@@ -119,14 +121,18 @@ class Circle(Shape):
         Returns:
             bool: True if the radii of the two circles are not equal, False otherwise.
         """
-        if self._check_operand_type(Circle, other):
-            if(self.radius == other.radius):
-                return False
+        try:
+            if self._check_operand_type(self, other):
+                if(self.radius == other.radius):
+                    return False
+                else:
+                    return True
             else:
-                return True
-        else:
+                return False
+        except TypeError as ex:
+            print(ex)
             return False
-
+        
     # Setters and getters beyond this point
     #######################################
 

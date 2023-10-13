@@ -69,7 +69,7 @@ class Shape:
         Returns:
             bool: True if the operand type is valid, raises TypeError otherwise.
         """
-        if not isinstance(other, calling):
+        if not isinstance(other, type(calling)):
            raise TypeError(f"Unsupported operand type(s) for == '{type(calling)}' and {type(other)}!")
         return True
 
