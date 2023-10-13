@@ -4,8 +4,6 @@ from geometry_shapes.Sphere import Sphere
 from geometry_shapes.Rectangle import Rectangle
 from geometry_shapes.Cube import Cube
 
-my_circle = Circle()
-
 # Fixtures to create instances of the classes
 @pytest.fixture
 def circle():
@@ -69,7 +67,7 @@ def test_rectangle_is_square():
 
 # Tests for the Cube class
 def test_cube_volume(cube):
-    assert cube.volume == 48.0
+    assert cube.volume == 24.0
 
 def test_cube_is_inside(cube):
     assert cube.is_inside(1.0, 1.5, 2.0)
@@ -78,3 +76,90 @@ def test_cube_is_inside(cube):
 def test_cube_is_unity_cube():
     unity_cube = Cube()
     assert unity_cube.is_unity_cube() is True
+def test_translate_cube(rectangle):
+    rectangle.translate(2, 3)
+    assert rectangle.x == 2
+    assert rectangle.y == 3
+
+def test_translate_3d_cube():
+    cube = Cube()
+    cube.translate(2, 3, 4)
+    assert cube.x == 2
+    assert cube.y == 3
+    assert cube.z == 4
+class TestCircle:
+
+    def test_circle_constructor(self):
+        circle = Circle(x=1, y=2, radius=3)
+        assert circle.x == 1
+        assert circle.y == 2
+        assert circle.radius == 3
+
+    def test_circle_area(self):
+        circle = Circle(radius=2)
+        assert circle.area == 12.566370614359172
+
+    def test_circle_circumference(self):
+        circle = Circle(radius=3)
+        assert circle.circumference == 18.84955592153876
+
+    def test_circle_is_inside(self):
+        circle = Circle(x=2, y=3, radius=4)
+        assert circle.is_inside(2, 3) is True
+
+    def test_circle_is_not_inside(self):
+        circle = Circle(x=2, y=3, radius=4)
+        assert circle.is_inside(6, 7) is False
+
+    def test_circle_gt(self):
+        circle1 = Circle(radius=2)
+        circle2 = Circle(radius=3)
+        
+        print(f"Circle 1: {circle1.area}")
+        print(f"Circle 2: {circle2.area}")
+
+        assert (circle1 > circle2) is False
+
+    def test_circle_lt(self):
+        circle1 = Circle(radius=2)
+        circle2 = Circle(radius=3)
+        assert (circle1 < circle2) is True
+
+class TestSphere:
+
+    def test_sphere_constructor(self):
+        sphere = Sphere(x=1, y=2, z=3, radius=4)
+        assert sphere.x == 1
+        assert sphere.y == 2
+        assert sphere.z == 3
+        assert sphere.radius == 4
+
+    def test_sphere_volume(self):
+        sphere = Sphere(radius=3)
+        assert sphere.volume - 113.09733552923255 < 0.00001
+
+    # Add more Sphere tests as needed
+
+class TestRectangle:
+
+    def test_rectangle_constructor(self):
+        rectangle = Rectangle(x=1, y=2, side1=3, side2=4)
+        assert rectangle.x == 1
+        assert rectangle.y == 2
+        assert rectangle.side1 == 3
+        assert rectangle.side2 == 4
+
+    # Add Rectangle tests as needed
+
+class TestCube:
+
+    def test_cube_constructor(self):
+        cube = Cube(x=1, y=2, z=3, width=4, height=5, depth=6)
+        assert cube.x == 1
+        assert cube.y == 2
+        assert cube.z == 3
+        assert cube.width == 4
+        assert cube.height == 5
+        assert cube.depth == 6
+
+    # Add Cube tests as needed

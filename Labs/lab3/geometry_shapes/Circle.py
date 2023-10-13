@@ -1,12 +1,12 @@
-from .Common_supershape import Common_supershape
+from .Shape import Shape
 from typing import Union
 import math
 import matplotlib.patches as patches
 from matplotlib.axes._axes import Axes
 
-class Circle(Common_supershape):
+class Circle(Shape):
     """
-    A class representing a circle in 2D space. Inherits from Common_supershape.
+    A class representing a circle in 2D space. Inherits from Shape.
 
     Attributes:
         x ([int | float]): The x-coordinate of the circle's center.
@@ -180,8 +180,8 @@ class Circle(Common_supershape):
 
     @property
     def circumference(self) -> Union[int,float]:
-        return 2 * math.pi * self.radius
+        return 2 * math.pi * self._radius
     
     @property
     def area(self) -> Union[int,float]:
-        return math.pi * (self.radius**2)
+        return math.pi * (self._radius**2)

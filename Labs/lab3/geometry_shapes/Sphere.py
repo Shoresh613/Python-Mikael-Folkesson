@@ -1,10 +1,10 @@
-from .Common_supershape import Common_supershape
+from .Shape import Shape
 from typing import Union
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 import math
 
-class Sphere(Common_supershape):
+class Sphere(Shape):
     """
     A class representing a 3D sphere.
 

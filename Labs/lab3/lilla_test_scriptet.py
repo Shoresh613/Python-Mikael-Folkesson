@@ -45,6 +45,11 @@ my_second_sphere = Sphere(10,10,10,5)
 my_second_sphere.draw(ax3D)
 my_cube = Cube(-10,-10, -10,8,8,8)
 my_cube.draw(ax3D)
+my_sphere.radius=5
+my_sphere.translate(-5,-5, 2)
+my_sphere.draw(ax3D)
+print(my_sphere.radius)
+print(my_sphere)
 
 # Set axis limits to ensure correct scaling
 ax3D.set_xlim(-20, +20)
@@ -54,7 +59,8 @@ ax3D.set_zlim(-20, +20)
 ax3D.set_box_aspect([1,1,1])
 plt.show()
 
-print(f"{my_sphere.is_unity_sphere() =}")
+print(f"\nSPHERE:\n{my_sphere.is_inside(-5,-2, 0) =}")
+print(f"\n{my_sphere.is_unity_sphere() =}\n")
 print(my_rectangle==rec)
 
 # 2D plotting: Create a figure and axis

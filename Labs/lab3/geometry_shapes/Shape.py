@@ -1,4 +1,4 @@
-class Common_supershape:
+class Shape:
     """
     A common base class for various 2D and 3D geometric shapes.
 
@@ -27,29 +27,7 @@ class Common_supershape:
         self.x = self.x + x
         self.y = self.y + y        
         if len(args) == 1:
-            self.z = self.z + args
-
-    def is_inside(self, x, y):
-        """
-        Check if a point is inside the shape.
-
-        Args:
-            x ([int | float]): The x-coordinate of the point.
-            y ([int | float]): The y-coordinate of the point.
-
-        Returns:
-            bool: True if the point is inside the shape, False otherwise.
-        """
-        pass
-
-    def draw(self, ax):
-        """
-        Draw the shape.
-
-        Returns:
-            None
-        """
-        pass
+            self.z = self.z + args[0]
 
     def _is_value_ok(self, value):
         """
@@ -94,12 +72,9 @@ class Common_supershape:
         Returns:
             bool: True if the current shape's area is greater, False otherwise.
         """
-        if not isinstance(other, Common_supershape):
-            raise TypeError(f"Unsupported operand type(s) for > 'Common_supershape' and {type(other)}!")
-        if self.area > other.area:
-            return True
-        else:
-            return False
+        if not isinstance(other, Shape):
+            raise TypeError(f"Unsupported operand type(s) for > 'Shape' and {type(other)}!")
+        return self.area > other.area
 
     def __lt__(self, other):
         """
@@ -111,12 +86,9 @@ class Common_supershape:
         Returns:
             bool: True if the current shape's area is less, False otherwise.
         """
-        if not isinstance(other, Common_supershape):
-            raise TypeError(f"Unsupported operand type(s) for > 'Common_supershape' and {type(other)}!")
-        if self.area < other.area:
-            return True
-        else:
-            return False
+        if not isinstance(other, Shape):
+            raise TypeError(f"Unsupported operand type(s) for > 'Shape' and {type(other)}!")
+        return self.area < other.area
 
     def __ge__(self, other):
         """
@@ -128,12 +100,9 @@ class Common_supershape:
         Returns:
             bool: True if the current shape's area is greater than or equal, False otherwise.
         """
-        if not isinstance(other, Common_supershape):
-            raise TypeError(f"Unsupported operand type(s) for > 'Common_supershape' and {type(other)}!")
-        if self.area >= other.area:
-            return True
-        else:
-            return False
+        if not isinstance(other, Shape):
+            raise TypeError(f"Unsupported operand type(s) for > 'Shape' and {type(other)}!")
+        return self.area >= other.area
 
     def __le__(self, other):
         """
@@ -145,9 +114,6 @@ class Common_supershape:
         Returns:
             bool: True if the current shape's area is less than or equal, False otherwise.
         """
-        if not isinstance(other, Common_supershape):
-            raise TypeError(f"Unsupported operand type(s) for > 'Common_supershape' and {type(other)}!")
-        if self.area <= other.area:
-            return True
-        else:
-            return False
+        if not isinstance(other, Shape):
+            raise TypeError(f"Unsupported operand type(s) for > 'Shape' and {type(other)}!")
+        return self.area <= other.area

@@ -1,9 +1,9 @@
-from .Common_supershape import Common_supershape
+from .Shape import Shape
 from typing import Union
 import matplotlib.patches as patches
 from matplotlib.axes._axes import Axes
 
-class Rectangle(Common_supershape):
+class Rectangle(Shape):
     """
     A class representing a rectangle in 2D space.
 

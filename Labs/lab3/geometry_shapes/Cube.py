@@ -1,9 +1,9 @@
-from .Common_supershape import Common_supershape
+from .Shape import Shape
 from typing import Union
 from mpl_toolkits.mplot3d import Axes3D
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
-class Cube(Common_supershape):
+class Cube(Shape):
     """
     A class representing a 3D cube.
 
@@ -220,13 +220,13 @@ class Cube(Common_supershape):
 
     @property
     def depth(self) -> Union[int,float]:
-        return self._width
+        return self._depth
 
     @depth.setter
     def depth(self, depth):
         try:
             if self._is_value_ok(depth):
-                self._width = depth
+                self._depth = depth
         except ValueError as ex:
             print(ex)
 
