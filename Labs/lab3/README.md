@@ -43,6 +43,7 @@ plt.gca().set_aspect('equal', adjustable='box')
 plt.show()
 ```
 Example 2d plot:
+
 ![Example 2D plot](./assets/2dplot.svg)
 
 
@@ -68,6 +69,7 @@ ax3D.set_box_aspect([1,1,1])
 plt.show()
 ``` 
 Example 3d plot:
+
 ![Example 3D plot](./assets/3dplot.svg)
 
 ## Testing
@@ -76,4 +78,4 @@ Test files have been written for pytest. They are stored in the lab3 root folder
 pytest .
 ```
 ### Still to do
-* Unit testing
+* Nothing left to do ;)
