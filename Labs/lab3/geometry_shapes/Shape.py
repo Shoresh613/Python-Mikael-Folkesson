@@ -3,11 +3,11 @@ class Shape:
     A common base class for various 2D and 3D geometric shapes.
 
     Methods:
-        translate(x: ([int | float]), y: ([int | float]), *args: ([int | float])) -> None: Translate the shape's position.
-        is_inside(x: ([int | float]), y: ([int | float])) -> bool: Check if a point is inside the shape.
+        translate(x: (int | float), y: (int | float), *args: (int | float)) -> None: Translate the shape's position.
+        is_inside(x: (int | float), y: (int | float)) -> bool: Check if a point is inside the shape.
         draw() -> None: Draw the shape.
-        _is_value_ok(value: ([int | float])) -> bool: Check if a value is an integer or a float.
-        _is_size_value_ok(value: ([int | float])) -> bool: Check if a value is a positive integer or float (>0).
+        _is_value_ok(value: (int | float)) -> bool: Check if a value is an integer or a float.
+        _is_size_value_ok(value: (int | float)) -> bool: Check if a value is a positive integer or float (>0).
     """
     def __init__(self) -> None:
         pass
@@ -17,8 +17,8 @@ class Shape:
         Translate the shape's position, i.e. move the object.
 
         Args:
-            x ([int | float]): The x-translation.
-            y ([int | float]): The y-translation.
+            x (int | float): The x-translation.
+            y (int | float): The y-translation.
             *args: Optional z-translation for 3D objects.
 
         Returns:
@@ -34,7 +34,7 @@ class Shape:
         Check if a value is an integer or a float, to see if it is a valid coordinate.
 
         Args:
-            value ([int | float]): The value to check.
+            value (int | float): The value to check.
 
         Returns:
             bool: True if the value is an integer or a float, False otherwise.
@@ -49,7 +49,7 @@ class Shape:
         Check if a value is a positive integer or float (>0), to see if it is a valid spacial extension.
 
         Args:
-            value ([int | float]): The value to check.
+            value (int | float): The value to check.
 
         Returns:
             bool: True if the value is a positive integer or float (>0) entered as (a) digit(s), False otherwise.

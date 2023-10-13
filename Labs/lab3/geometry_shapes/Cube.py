@@ -8,24 +8,24 @@ class Cube(Shape):
     A class representing a 3D cube. Inherits from Shape.
 
     Attributes:
-        x ([int | float]): The x-coordinate of the cube's center.
-        y ([int | float]): The y-coordinate of the cube's center.
-        z ([int | float]): The z-coordinate of the cube's center.
-        width ([int | float]): The width of the cube.
-        height ([int | float]): The height of the cube.
-        depth ([int | float]): The depth of the cube.
+        x (int | float): The x-coordinate of the cube's center.
+        y (int | float): The y-coordinate of the cube's center.
+        z (int | float): The z-coordinate of the cube's center.
+        width (int | float): The width of the cube.
+        height (int | float): The height of the cube.
+        depth (int | float): The depth of the cube.
     """
     def __init__(self, x=0, y=0,  z=0, width=1, height=1, depth=1):
         """
         Initialize a 3D cube.
 
         Args:
-            x ([int | float]): The x-coordinate of the cube's center.
-            y ([int | float]): The y-coordinate of the cube's center.
-            z ([int | float]): The z-coordinate of the cube's center.
-            width ([int | float]): The width of the cube.
-            height ([int | float]): The height of the cube.
-            depth ([int | float]): The depth of the cube.
+            x (int | float): The x-coordinate of the cube's center.
+            y (int | float): The y-coordinate of the cube's center.
+            z (int | float): The z-coordinate of the cube's center.
+            width (int | float): The width of the cube.
+            height (int | float): The height of the cube.
+            depth (int | float): The depth of the cube.
         """
         try:
             self.x = x
@@ -42,9 +42,9 @@ class Cube(Shape):
         Check if a point is inside the cube.
 
         Args:
-            x ([int | float]): The x-coordinate of the point.
-            y ([int | float]): The y-coordinate of the point.
-            z ([int | float]): The z-coordinate of the point.
+            x (int | float): The x-coordinate of the point.
+            y (int | float): The y-coordinate of the point.
+            z (int | float): The z-coordinate of the point.
 
         Returns:
             bool: True if the point is inside the cube, False otherwise.

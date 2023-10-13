@@ -9,10 +9,10 @@ class Sphere(Shape):
     A class representing a 3D sphere. Inherits from Shape.
 
     Attributes:
-        x ([int | float]): The x-coordinate of the sphere's center.
-        y ([int | float]): The y-coordinate of the sphere's center.
-        z ([int | float]): The z-coordinate of the sphere's center.
-        radius ([int | float]): The radius of the sphere.
+        x (int | float): The x-coordinate of the sphere's center.
+        y (int | float): The y-coordinate of the sphere's center.
+        z (int | float): The z-coordinate of the sphere's center.
+        radius (int | float): The radius of the sphere.
     """
     def __init__(self, x=0, y=0, z=0, radius=1):
         try:
@@ -29,9 +29,9 @@ class Sphere(Shape):
         Check if a point is inside the sphere.
 
         Args:
-            x ([int | float]): The x-coordinate of the point.
-            y ([int | float]): The y-coordinate of the point.
-            z ([int | float]): The z-coordinate of the point.
+            x (int | float): The x-coordinate of the point.
+            y (int | float): The y-coordinate of the point.
+            z (int | float): The z-coordinate of the point.
 
         Returns:
             bool: True if the point is inside the sphere, False otherwise.

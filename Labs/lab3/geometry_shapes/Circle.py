@@ -9,11 +9,11 @@ class Circle(Shape):
     A class representing a circle in 2D space. Inherits from Shape.
 
     Attributes:
-        x ([int | float]): The x-coordinate of the circle's center.
-        y ([int | float]): The y-coordinate of the circle's center.
-        radius ([int | float]): The radius of the circle.
-        circumference ([int | float]): The circumference of the circle.
-        area ([int | float]): The area of the circle.
+        x (int | float): The x-coordinate of the circle's center.
+        y (int | float): The y-coordinate of the circle's center.
+        radius (int | float): The radius of the circle.
+        circumference (int | float): The circumference of the circle.
+        area (int | float): The area of the circle.
     """
 
     def __init__(self, x=0, y=0, radius=1) -> None:
@@ -21,9 +21,9 @@ class Circle(Shape):
         Initialize a Circle object.
 
         Args:
-            x ([int | float]): The x-coordinate of the circle's center.
+            x (int | float): The x-coordinate of the circle's center.
             y ([int  float]): The y-coordinate of the circle's center.
-            radius ([int | float]): The radius of the circle.
+            radius (int | float): The radius of the circle.
         """
         try:
             self.x = x
@@ -37,8 +37,8 @@ class Circle(Shape):
         Check if a point (x, y) is inside the circle.
 
         Args:
-            x ([int | float]): The x-coordinate of the point to check.
-            y ([int | float]): The y-coordinate of the point to check.
+            x (int | float): The x-coordinate of the point to check.
+            y (int | float): The y-coordinate of the point to check.
 
         Returns:
             bool: True if the point is inside the circle, False otherwise.

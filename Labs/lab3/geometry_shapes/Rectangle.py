@@ -8,12 +8,12 @@ class Rectangle(Shape):
     A class representing a rectangle in 2D space. Inherits from Shape.
 
     Attributes:
-        x ([int | float]): The x-coordinate of the rectangle's center.
-        y ([int | float]): The y-coordinate of the rectangle's center.
-        side1 ([int | float]): The length of the first side of the rectangle.
-        side2 ([int | float]): The length of the second side of the rectangle.
-        circumference ([int | float]): The circumference of the rectangle.
-        area ([int | float]): The area of the rectangle.
+        x (int | float): The x-coordinate of the rectangle's center.
+        y (int | float): The y-coordinate of the rectangle's center.
+        side1 (int | float): The length of the first side of the rectangle.
+        side2 (int | float): The length of the second side of the rectangle.
+        circumference (int | float): The circumference of the rectangle.
+        area (int | float): The area of the rectangle.
     Raises:
         ValueError: If x, y, side1 or side2 are not integers or floats, or if the sides are zero or negative.
     """
@@ -22,10 +22,10 @@ class Rectangle(Shape):
         Initialize a Rectangle object.
 
         Args:
-            x ([int | float]): The x-coordinate of the rectangle's center.
-            y ([int | float]): The y-coordinate of the rectangle's center.
-            side1 ([int | float]): The length of the first side of the rectangle.
-            side2 ([int | float]): The length of the second side of the rectangle.
+            x (int | float): The x-coordinate of the rectangle's center.
+            y (int | float): The y-coordinate of the rectangle's center.
+            side1 (int | float): The length of the first side of the rectangle.
+            side2 (int | float): The length of the second side of the rectangle.
         """
         try:
             self.x = x
@@ -40,8 +40,8 @@ class Rectangle(Shape):
         Check if a point (x, y) is inside the rectangle.
 
         Args:
-            x ([int | float]): The x-coordinate of the point to check.
-            y ([int | float]): The y-coordinate of the point to check.
+            x (int | float): The x-coordinate of the point to check.
+            y (int | float): The y-coordinate of the point to check.
 
         Returns:
             bool: True if the point is inside the rectangle, False otherwise.
