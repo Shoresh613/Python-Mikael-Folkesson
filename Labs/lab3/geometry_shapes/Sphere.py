@@ -50,20 +50,6 @@ class Sphere(Shape):
         """
         return True if self.x == 0 and self.y == 0 and self.z == 0 and self.radius == 1 else False
 
-    def _check_operand_type(self, other) -> bool:
-        """
-        Check if the operand type is valid for comparison.
-
-        Args:
-            other: The object to compare.
-
-        Returns:
-            bool: True if the operand type is valid, raises TypeError otherwise.
-        """
-        if not isinstance(other, Sphere):
-           raise TypeError(f"Unsupported operand type(s) for == 'Sphere' and {type(other)}!")
-        return True
-
     def draw(self, ax3D:Axes3D, label=True) -> None:
         """
         Draw the 3D sphere on a given Axes3D.
@@ -108,7 +94,7 @@ class Sphere(Shape):
         Returns:
             bool: True if the spheres are equal, False otherwise.
         """
-        if self._check_operand_type(other):
+        if self._check_operand_type(Sphere, other):
             if(self.radius == other.radius):
                 return True
             else:
@@ -124,7 +110,7 @@ class Sphere(Shape):
         Returns:
             bool: True if the spheres are not equal, False otherwise.
         """
-        if self._check_operand_type(other):
+        if self._check_operand_type(Sphere, other):
             if(self.radius == other.radius):
                 return False
             else:

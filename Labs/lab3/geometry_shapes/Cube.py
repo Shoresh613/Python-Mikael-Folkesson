@@ -88,20 +88,6 @@ class Cube(Shape):
         """
         return True if self.x == 0 and self.y == 0 and self.z == 0 and self.width == 1 and self.height == 1 and self.depth == 1 else False
     
-    def _check_operand_type(self, other) -> bool:
-        """
-        Check if the operand type is valid for comparison.
-
-        Args:
-            other: The object to compare.
-
-        Returns:
-            bool: True if the operand type is valid, raises TypeError otherwise.
-        """
-        if not isinstance(other, Cube):
-           raise TypeError(f"Unsupported operand type(s) for == 'Cube' and {type(other)}!")
-        return True
-
     def draw(self, ax3D: Axes3D, label=True) -> None:
         """
         Draw the 3D cube on a given Axes3D.
@@ -158,14 +144,14 @@ class Cube(Shape):
         return super().__str__() + f": Center point: {self.x,self.y,self.z}, width: {self.width}, height {self.height}, depth {self.depth}"
     
     def __eq__(self, other) -> bool:
-        if self._check_operand_type(other):
+        if self._check_operand_type(Cube, other):
             if((self.width == other.width) and (self.height == other.height) and (self.depth == other.depth)):
                 return True
             else:
                 return False
 
     def __ne__(self, other) -> bool:
-         if self._check_operand_type(other):
+         if self._check_operand_type(Cube, other):
             if((self.width == other.width) and (self.height == other.height) and (self.depth == other.depth)):
                 return False
             else:

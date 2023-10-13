@@ -57,20 +57,6 @@ class Circle(Shape):
         """
         return True if self.x == 0 and self.y == 0 and self.radius == 1 else False
 
-    def _check_operand_type(self, other) -> bool:
-        """
-        Check the type of another object for operator overloading.
-
-        Args:
-            other: The object to check against.
-
-        Returns:
-            bool: True if the type of 'other' is Circle, raises TypeError otherwise.
-        """
-        if not isinstance(other, Circle):
-           raise TypeError(f"Unsupported operand type(s) for == 'Circle' and {type(other)}!")
-        return True
-
     def draw(self, ax: Axes, label=True) -> None:
         """
         Draw the circle on a matplotlib Axes.
@@ -118,7 +104,7 @@ class Circle(Shape):
         Returns:
             bool: True if the radii of the two circles are equal, False otherwise.
         """
-        if self._check_operand_type(other):
+        if self._check_operand_type(Circle,other):
             if(self.radius == other.radius):
                 return True
             else:
@@ -134,7 +120,7 @@ class Circle(Shape):
         Returns:
             bool: True if the radii of the two circles are not equal, False otherwise.
         """
-        if self._check_operand_type(other):
+        if self._check_operand_type(Circle, other):
             if(self.radius == other.radius):
                 return False
             else:

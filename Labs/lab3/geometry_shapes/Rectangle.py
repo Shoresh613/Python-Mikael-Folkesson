@@ -64,20 +64,6 @@ class Rectangle(Shape):
         """
         return True if self.side1 == self.side2 else False
     
-    def _check_operand_type(self, other) -> bool:
-        """
-        Check the type of another object for operator overloading.
-
-        Args:
-            other: The object to check against.
-
-        Returns:
-            bool: True if the type of 'other' is Rectangle, False otherwise.
-        """
-        if not isinstance(other, Rectangle):
-           raise TypeError(f"Unsupported operand type(s) for == 'Rectangle' and {type(other)}!")
-        return True
-
     def draw(self, ax: Axes, label=True) -> None:
         """
         Draw the rectangle on a matplotlib Axes.
@@ -128,7 +114,7 @@ class Rectangle(Shape):
         Returns:
             bool: True if the sides of the two rectangles are equal, False otherwise.
         """
-        if self._check_operand_type(other):
+        if self._check_operand_type(Rectangle, other):
             if (self.side1 == other.side1) and (self.side2 == other.side2):
                 return True
             else:
@@ -144,7 +130,7 @@ class Rectangle(Shape):
         Returns:
             bool: True if the sides of the two rectangles are not equal, False otherwise.
         """
-        if self._check_operand_type(other):
+        if self._check_operand_type(Rectangle, other):
             if (self.side1 == other.side1) and (self.side2 == other.side2):
                 return False
             else:

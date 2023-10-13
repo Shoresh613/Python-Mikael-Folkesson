@@ -59,6 +59,20 @@ class Shape:
         else:
             raise ValueError(f"Value '{value}' must be a positive integer or float (>0) entered as (a) digit(s).")
 
+    def _check_operand_type(self, calling, other) -> bool:
+        """
+        Check if the operand type is valid for comparison.
+
+        Args:
+            other: The object to compare.
+
+        Returns:
+            bool: True if the operand type is valid, raises TypeError otherwise.
+        """
+        if not isinstance(other, calling):
+           raise TypeError(f"Unsupported operand type(s) for == '{type(calling)}' and {type(other)}!")
+        return True
+
     # Comparison operator overloads
     ###############################
 
