@@ -131,7 +131,7 @@ class Circle(Shape):
                 return False
         except TypeError as ex:
             print(ex)
-            return False
+            return True
         
     # Setters and getters beyond this point
     #######################################

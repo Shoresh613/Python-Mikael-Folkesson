@@ -99,6 +99,7 @@ class Sphere(Shape):
                     return False
         except TypeError as ex:
             print(ex)
+            return False
 
     def __ne__(self, other)  -> bool:
         """
@@ -112,12 +113,13 @@ class Sphere(Shape):
         """
         try:
             if self._check_operand_type(self, other):
-                if(self.radius == other.radius):
-                    return False
-                else:
+                if(self.radius != other.radius):
                     return True
+                else:
+                    return False
         except TypeError as ex:
             print(ex)
+            return True
 
 
 # Setters and getters beyond this point

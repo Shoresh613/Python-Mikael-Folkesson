@@ -190,7 +190,7 @@ class Cube(Shape):
                     return True
         except TypeError as ex:
             print(ex)
-            return False
+            return True
     # Setters and getters beyond this point
     #######################################
 

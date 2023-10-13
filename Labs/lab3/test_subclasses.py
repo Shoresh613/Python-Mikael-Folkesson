@@ -311,3 +311,51 @@ def test_cube_assign_new_values(cube):
     # Test assigning a large side length (boundary condition)
     cube.width = 1e6
     assert cube.volume == pytest.approx(3.0e7, rel=1e-2)
+
+# Comparisons between classes
+def test_circle_equal_rectangle(circle, rectangle):
+    assert (circle == rectangle) is False
+
+def test_circle_equal_sphere(circle, sphere):
+    assert (circle == sphere) is False
+
+def test_circle_equal_cube(circle, cube):
+    assert (circle == cube) is False
+
+def test_rectangle_equal_sphere(rectangle, sphere):
+    assert (rectangle == sphere) is False
+
+def test_rectangle_equal_cube(rectangle, cube):
+    assert (rectangle == cube) is False
+
+def test_sphere_equal_cube(sphere, cube):
+    assert (sphere == cube) is False
+
+def test_circle_not_equal_rectangle(circle, rectangle):
+    assert (circle != rectangle) is True
+
+def test_circle_not_equal_sphere(circle, sphere):
+    assert (circle != sphere) is True
+
+def test_circle_not_equal_cube(circle, cube):
+    assert (circle != cube) is True
+
+def test_rectangle_not_equal_sphere(rectangle, sphere):
+    assert (rectangle != sphere) is True
+
+def test_rectangle_not_equal_cube(rectangle, cube):
+    assert (rectangle != cube) is True
+
+def test_sphere_not_equal_cube(sphere, cube):
+    assert (sphere != cube) is True
+
+# Equality comparisons of same class
+def test_cube_equal_cube():
+    cube1 = Cube(2,3,5, 3, 4, 2)
+    cube2 = Cube(-2,1,5, 3, 4, 2)
+    assert (cube1 == cube2) is True
+
+def test_circle_not_equal_circle():
+    circle1 = Circle(2,3,5)
+    circle2 = Circle(-2,1,5)
+    assert (circle1 == circle2) is True
