@@ -14,7 +14,8 @@ class Circle(Shape):
         radius ([int | float]): The radius of the circle.
         circumference ([int | float]): The circumference of the circle.
         area ([int | float]): The area of the circle.
-
+    Raises:
+        ValueError: If x, y, or radius are not integers or floats, or if the radius is zero or negative.
     """
 
     def __init__(self, x=0, y=0, radius=1) -> None:
@@ -32,6 +33,7 @@ class Circle(Shape):
             self.radius = radius
         except ValueError as ex:
             print(ex)
+            raise ValueError(ex)
 
     def is_inside(self, x, y) -> bool:
         """
@@ -151,7 +153,7 @@ class Circle(Shape):
             if self._is_value_ok(x):
                 self._x = x
         except ValueError as ex:
-            print(ex)
+            raise ValueError(ex)
 
     @property
     def y(self) -> Union[int,float]:
@@ -163,7 +165,7 @@ class Circle(Shape):
             if self._is_value_ok(y):
                 self._y = y
         except ValueError as ex:
-            print(ex)
+            raise ValueError(ex)
 
     @property
     def radius(self) -> Union[int,float]:
@@ -176,7 +178,7 @@ class Circle(Shape):
                 if radius > 0:
                     self._radius = radius
         except ValueError as ex:
-            print(ex)
+            raise ValueError(ex)
 
     @property
     def circumference(self) -> Union[int,float]:

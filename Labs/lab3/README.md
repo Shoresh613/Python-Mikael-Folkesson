@@ -1,6 +1,6 @@
 # Lab 3
 
-The task, which in essence is to create geometrical object classes, can be found in the PDF file in the assets folder.
+The task, which in essence was to create geometrical object classes in a neatly structured way, can be found in the PDF file in the assets folder.
 
 ## Initial UML chart
 Here's an initial UML chart of my general idea of the structure before beginning to code:

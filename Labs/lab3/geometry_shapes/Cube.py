@@ -26,14 +26,20 @@ class Cube(Shape):
             width ([int | float]): The width of the cube.
             height ([int | float]): The height of the cube.
             depth ([int | float]): The depth of the cube.
+        Raises:
+            ValueError: If some of the arguments are not integers or floats, or if any of width, height, depth is zero or negative.
         """
-        self.x = x
-        self.y = y
-        self.z = z
-        self.width = width
-        self.height = height
-        self.depth = depth
-    
+        try:
+            self.x = x
+            self.y = y
+            self.z = z
+            self.width = width
+            self.height = height
+            self.depth = depth
+        except ValueError as ex:
+            print(ex)
+            raise ValueError(ex)
+
     def is_inside(self, x, y, z) -> bool:
         """
         Check if a point is inside the cube.
@@ -62,6 +68,16 @@ class Cube(Shape):
             bool: True if the cube is a square, False otherwise.
         """
         return True if self.width == self.height == self.depth else False
+    
+    def is_cube(self) -> bool:
+        """
+        Check if the cube is a square cube (equal width, height, and depth).
+        Same as is_square().
+
+        Returns:
+            bool: True if the cube is a square, False otherwise.
+        """
+        return self.is_square()
 
     def is_unity_cube(self) -> bool:
         """
@@ -168,7 +184,7 @@ class Cube(Shape):
             if self._is_value_ok(x):
                 self._x = x 
         except ValueError as ex:
-            print(ex)
+            raise ValueError(ex)
 
     @property
     def y(self) -> Union[int,float]:
@@ -180,7 +196,7 @@ class Cube(Shape):
             if self._is_value_ok(y):
                 self._y = y
         except ValueError as ex:
-            print(ex)
+            raise ValueError(ex)
 
     @property
     def z(self) -> Union[int,float]:
@@ -192,7 +208,7 @@ class Cube(Shape):
             if self._is_value_ok(z):
                 self._z = z
         except ValueError as ex:
-            print(ex)
+            raise ValueError(ex)
 
     @property
     def width(self) -> Union[int,float]:
@@ -201,10 +217,10 @@ class Cube(Shape):
     @width.setter
     def width(self, width):
         try:
-            if self._is_value_ok(width):
+            if self._is_size_value_ok(width):
                 self._width = width
         except ValueError as ex:
-            print(ex)
+            raise ValueError(ex)
 
     @property
     def height(self) -> Union[int,float]:
@@ -213,10 +229,10 @@ class Cube(Shape):
     @height.setter
     def height(self, height):
         try:
-            if self._is_value_ok(height):
+            if self._is_size_value_ok(height):
                 self._height = height
         except ValueError as ex:
-            print(ex)
+            raise ValueError(ex)
 
     @property
     def depth(self) -> Union[int,float]:
@@ -225,10 +241,10 @@ class Cube(Shape):
     @depth.setter
     def depth(self, depth):
         try:
-            if self._is_value_ok(depth):
+            if self._is_size_value_ok(depth):
                 self._depth = depth
         except ValueError as ex:
-            print(ex)
+            raise ValueError(ex)
 
     @property
     def circumference(self) -> Union[int,float]:

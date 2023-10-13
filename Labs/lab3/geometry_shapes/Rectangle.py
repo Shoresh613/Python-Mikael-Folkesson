@@ -14,6 +14,8 @@ class Rectangle(Shape):
         side2 ([int | float]): The length of the second side of the rectangle.
         circumference ([int | float]): The circumference of the rectangle.
         area ([int | float]): The area of the rectangle.
+    Raises:
+        ValueError: If x, y, side1 or side2 are not integers or floats, or if the sides are zero or negative.
     """
     def __init__(self, x=0, y=0, side1=1, side2=1):
         """
@@ -25,10 +27,14 @@ class Rectangle(Shape):
             side1 ([int | float]): The length of the first side of the rectangle.
             side2 ([int | float]): The length of the second side of the rectangle.
         """
-        self.x = x
-        self.y = y
-        self.side1 = side1
-        self.side2 = side2
+        try:
+            self.x = x
+            self.y = y
+            self.side1 = side1
+            self.side2 = side2
+        except ValueError as ex:
+            print(ex)
+            raise ValueError(ex)
     
     def is_inside(self, x, y) -> bool:
         """
@@ -157,7 +163,7 @@ class Rectangle(Shape):
             if self._is_value_ok(x):
                 self._x = x 
         except ValueError as ex:
-            print(ex)
+            raise ValueError(ex)
 
     @property
     def y(self) -> Union[int, float]:
@@ -169,7 +175,7 @@ class Rectangle(Shape):
             if self._is_value_ok(y):
                 self._y = y
         except ValueError as ex:
-            print(ex)
+            raise ValueError(ex)
 
     @property
     def side1(self) -> Union[int, float]:
@@ -181,7 +187,7 @@ class Rectangle(Shape):
             if self._is_size_value_ok(side1):
                 self._side1 = side1
         except ValueError as ex:
-            print(ex)
+            raise ValueError(ex)
 
     @property
     def side2(self) -> Union[int, float]:
@@ -193,7 +199,7 @@ class Rectangle(Shape):
             if self._is_size_value_ok(side2):
                 self._side2 = side2
         except ValueError as ex:
-            print(ex)
+            raise ValueError(ex)
 
     @property
     def circumference(self) -> Union[int, float]:
