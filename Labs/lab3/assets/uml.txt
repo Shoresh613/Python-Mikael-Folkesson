@@ -1,0 +1,81 @@
+@startuml geometry_shapes
+namespace geometry_shapes {
+  namespace Shape {}
+  namespace Circle {}
+  namespace Rectangle {}
+  namespace Sphere {}
+  namespace Cube {}
+}
+
+class geometry_shapes.Shape.Shape {
+  + translate(x: nr, y: nr, *args: nr) : void
+  + isInside(x: nr, y: nr) : bool
+  + draw(ax: Any) : void
+  + isGreater(other: Common_supershape) : bool
+  + isLess(other: Common_supershape) : bool
+  + _isValueOk(value: nr) : bool
+  + _isSizeValueOk(value: nr) : bool
+}
+
+class geometry_shapes.Circle.Circle {
+  x: nr
+  y: nr
+  radius: +nr
+  circumference: +nr
+  area: +nr
+  + calculateArea(radius: +nr) : nr
+  + calculateCircumference(radius: +nr) : nr
+  + isInside(x: nr, y: nr) : bool
+  + isUnityCircle() : bool
+}
+
+class geometry_shapes.Rectangle.Rectangle {
+  x: nr
+  y: nr
+  side1: nr
+  side2: nr
+  circumference: +nr
+  area: +nr
+  + calculateArea() : nr
+  + calculateCircumference() : nr
+  + isInside(x: nr, y: nr) : bool
+  + isSquare() : bool
+  + draw(ax: Axis) : void
+}
+
+class geometry_shapes.Sphere.Sphere {
+  x: nr
+  y: nr
+  z: nr
+  radius: +nr
+  circumference: +nr
+  area: +nr
+  volume: +nr
+  + calculateVolume() : nr
+  + isInside(x: nr, y: nr, z: nr) : bool
+  + isUnitySphere() : bool
+  + draw(ax: Axis3D) : void
+}
+
+class geometry_shapes.Cube.Cube {
+  x: nr
+  y: nr
+  z: nr
+  width: nr
+  height: nr
+  depth: nr
+  circumference: +nr
+  area: +nr
+  volume: +nr
+  + calculateVolume() : nr
+  + isInside(x: nr, y: nr, z: nr) : bool
+  + isUnityCube() : bool
+  + draw(ax: Axis3D) : void
+}
+
+geometry_shapes.Shape.Shape <|-- geometry_shapes.Circle.Circle
+geometry_shapes.Shape.Shape <|-- geometry_shapes.Rectangle.Rectangle
+geometry_shapes.Shape.Shape <|-- geometry_shapes.Sphere.Sphere
+geometry_shapes.Shape.Shape <|-- geometry_shapes.Cube.Cube
+footer nr = int | float
+@enduml
