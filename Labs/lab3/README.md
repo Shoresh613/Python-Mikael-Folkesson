@@ -29,10 +29,10 @@ Then create the objects you want to plot, and tell them to draw on the axis you 
 
 ```python
 my_circle = Circle()
-my_circle.draw(ax)
+my_circle.draw(ax, label=True)
 ```
 
-You can then set the parameters for the plotting and finally show the objects:
+Where ``label=True`` indicates that position and size should be printed in text form also (only implemented for 2D objects). You can then set the parameters for the plotting and finally show the objects:
 
 ```python
 ax.set_xlim(-20, 20)
@@ -42,6 +42,9 @@ ax.grid(True, linestyle='--', linewidth=0.5, alpha=0.7, color='gray')
 plt.gca().set_aspect('equal', adjustable='box')
 plt.show()
 ```
+Example 2d plot:
+![Example 2D plot](./assets/2dplot.svg)
+
 
 ### In 3D
 First create an axis:
@@ -64,6 +67,9 @@ ax3D.set_zlim(-20, +20)
 ax3D.set_box_aspect([1,1,1])
 plt.show()
 ``` 
+Example 3d plot:
+![Example 3D plot](./assets/3dplot.svg)
+
 ## Testing
 Test files have been written for pytest. They are stored in the lab3 root folder. To run the tests, go to that folder and run:
 ```bash
