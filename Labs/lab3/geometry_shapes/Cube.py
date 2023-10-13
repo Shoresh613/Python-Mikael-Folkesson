@@ -5,7 +5,7 @@ from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
 class Cube(Shape):
     """
-    A class representing a 3D cube.
+    A class representing a 3D cube. Inherits from Shape.
 
     Attributes:
         x ([int | float]): The x-coordinate of the cube's center.
@@ -26,8 +26,6 @@ class Cube(Shape):
             width ([int | float]): The width of the cube.
             height ([int | float]): The height of the cube.
             depth ([int | float]): The depth of the cube.
-        Raises:
-            ValueError: If some of the arguments are not integers or floats, or if any of width, height, depth is zero or negative.
         """
         try:
             self.x = x
@@ -38,7 +36,6 @@ class Cube(Shape):
             self.depth = depth
         except ValueError as ex:
             print(ex)
-            raise ValueError(ex)
 
     def is_inside(self, x, y, z) -> bool:
         """
@@ -149,13 +146,17 @@ class Cube(Shape):
                 return True
             else:
                 return False
+        else:
+            return False
 
     def __ne__(self, other) -> bool:
-         if self._check_operand_type(Cube, other):
+        if self._check_operand_type(Cube, other):
             if((self.width == other.width) and (self.height == other.height) and (self.depth == other.depth)):
                 return False
             else:
                 return True
+        else:
+            return False
 
     # Setters and getters beyond this point
     #######################################

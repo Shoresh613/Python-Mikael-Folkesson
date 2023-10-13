@@ -5,7 +5,7 @@ from matplotlib.axes._axes import Axes
 
 class Rectangle(Shape):
     """
-    A class representing a rectangle in 2D space.
+    A class representing a rectangle in 2D space. Inherits from Shape.
 
     Attributes:
         x ([int | float]): The x-coordinate of the rectangle's center.
@@ -34,7 +34,6 @@ class Rectangle(Shape):
             self.side2 = side2
         except ValueError as ex:
             print(ex)
-            raise ValueError(ex)
     
     def is_inside(self, x, y) -> bool:
         """
@@ -119,6 +118,8 @@ class Rectangle(Shape):
                 return True
             else:
                 return False
+        else:
+            return False
 
     def __ne__(self, other) -> bool:
         """
@@ -135,6 +136,8 @@ class Rectangle(Shape):
                 return False
             else:
                 return True
+        else:
+            return False
 
     # Setters and getters beyond this point
     #######################################

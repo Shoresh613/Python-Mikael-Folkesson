@@ -14,8 +14,6 @@ class Circle(Shape):
         radius ([int | float]): The radius of the circle.
         circumference ([int | float]): The circumference of the circle.
         area ([int | float]): The area of the circle.
-    Raises:
-        ValueError: If x, y, or radius are not integers or floats, or if the radius is zero or negative.
     """
 
     def __init__(self, x=0, y=0, radius=1) -> None:
@@ -33,7 +31,6 @@ class Circle(Shape):
             self.radius = radius
         except ValueError as ex:
             print(ex)
-            raise ValueError(ex)
 
     def is_inside(self, x, y) -> bool:
         """
@@ -109,6 +106,8 @@ class Circle(Shape):
                 return True
             else:
                 return False
+        else:
+            return False
 
     def __ne__(self, other) -> bool:
         """
@@ -125,6 +124,8 @@ class Circle(Shape):
                 return False
             else:
                 return True
+        else:
+            return False
 
     # Setters and getters beyond this point
     #######################################

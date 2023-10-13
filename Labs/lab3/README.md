@@ -94,4 +94,4 @@ test_superclass.py ......                                                       
 ```
 
 ### Still to do
-* Nothing left to do ;)
+* Make comparisons work again.

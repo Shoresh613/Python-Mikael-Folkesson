@@ -19,6 +19,10 @@ print(my_second_circle)
 my_rectangle = Rectangle(1,3,6,3)
 my_rectangle.translate(-5,5)
 
+print(f"{my_circle == my_rectangle}")
+
+my_circle.translate("TRE",5)
+
 print(my_rectangle)
 
 print(my_second_circle.__repr__())

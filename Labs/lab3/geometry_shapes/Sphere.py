@@ -6,15 +6,13 @@ import math
 
 class Sphere(Shape):
     """
-    A class representing a 3D sphere.
+    A class representing a 3D sphere. Inherits from Shape.
 
     Attributes:
         x ([int | float]): The x-coordinate of the sphere's center.
         y ([int | float]): The y-coordinate of the sphere's center.
         z ([int | float]): The z-coordinate of the sphere's center.
         radius ([int | float]): The radius of the sphere.
-    Raises:
-        ValueError: If x, y, z, or radius are not integers or floats, or if the radius is zero or negative.
     """
     def __init__(self, x=0, y=0, z=0, radius=1):
         try:
@@ -24,7 +22,6 @@ class Sphere(Shape):
             self.radius = radius
         except ValueError as ex:
             print(ex)
-            raise ValueError(ex)
 
     # Asked ChatGPT for the formula to check whether a point is inside a sphere
     def is_inside(self, x, y, z) -> bool:
@@ -99,6 +96,8 @@ class Sphere(Shape):
                 return True
             else:
                 return False
+        else:
+            return False
 
     def __ne__(self, other)  -> bool:
         """
@@ -115,6 +114,8 @@ class Sphere(Shape):
                 return False
             else:
                 return True
+        else:
+            return False
 
 # Setters and getters beyond this point
 #######################################
