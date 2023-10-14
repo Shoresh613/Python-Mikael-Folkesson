@@ -94,5 +94,4 @@ test_superclass.py ......                                             [100%]
 ```
 
 ### Still to do
-* Verify comparisons work again
-* Add tests for checking comparisons between classes
+* Nothing left to do ;)

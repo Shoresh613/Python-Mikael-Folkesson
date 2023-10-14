@@ -55,9 +55,9 @@ ax3D.set_zlim(-20, +20)
 ax3D.set_box_aspect([1,1,1])
 plt.show()
 
-print(f"\nSPHERE:\n{my_sphere.is_inside(-5,-2, 0) =}")
-print(f"\n{my_sphere.is_unity_sphere() =}\n")
-print(f"{my_rectangle==rec =}")
+print(f"\n{my_sphere.is_inside(-5,-2, 0) = }")
+print(f"\n{my_sphere.is_unity_sphere() = }\n")
+print(f"{my_rectangle == rec = }")
 
 # 2D plotting: Create a figure and axis
 #######################################
