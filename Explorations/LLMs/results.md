@@ -14,3 +14,6 @@
 
 ## GPT-Neo 1.3B
 * Runs twice as slow as GPT2, also not on the GPU. And, unfortunately, also complete imbecil. Needs further fine-tuning.
+
+## ImageToTextGPT2
+* Not at all as descriptive as I would need.

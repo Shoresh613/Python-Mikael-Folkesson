@@ -10,7 +10,7 @@ Here's an initial UML chart of my general idea of the structure before beginning
 ## How it turned out
 The folder name is still geometry_shapes, but the superclass is simply called Shape. The Shape class has no attributes or properties, but it does contain the translate method, as it's common for all classes, and the comparison operator overloads (that compare the area of the objects).
 
-I found that the value of adding a 2D or 3D shape layer in between the super- and sub classes would be negative, as there is no great need to emphasize the character of the objects as it's already known. Also, the 2D classes  differ as much from each other as the 2D and 3D classes do. 
+I found that the value of adding a 2D or 3D shape layer in between the super- and sub classes would be negative, as there is no great need to emphasize the character of the objects as it's already known. Also, the 2D classes  differ as much from each other as the 2D and 3D classes do. I included dunder methods and operator overloads in the UML diagram below, just to show the structure in a more detailed way, though it may not be common practice.
 ![Final UML Diagram](./assets/uml.svg)
 
 ## Plotting
