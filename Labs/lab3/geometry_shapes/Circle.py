@@ -14,8 +14,10 @@ class Circle(Shape):
         radius (int | float): The radius of the circle.
         circumference (int | float): The circumference of the circle.
         area (int | float): The area of the circle.
+    Raises:
+        TypeError if x, y or radius are not (int | float)
+        ValueError if radius <= 0.
     """
-
     def __init__(self, x=0, y=0, radius=1) -> None:
         """
         Initialize a Circle object.
@@ -23,14 +25,14 @@ class Circle(Shape):
         Args:
             x (int | float): The x-coordinate of the circle's center.
             y ([int  float]): The y-coordinate of the circle's center.
-            radius (int | float): The radius of the circle.
+            radius (int | float): The radius of the circle, positive and > 0.
         """
         try:
             self.x = x
             self.y = y
             self.radius = radius
         except ValueError as ex:
-            print(ex)
+            raise(ex)
 
     def is_inside(self, x, y) -> bool:
         """
@@ -48,6 +50,8 @@ class Circle(Shape):
     def is_unity_circle(self) -> bool:
         """
         Check if the circle is a unity circle with center at (0, 0) and radius 1.
+        Arguably the method should return True regardless of where the center is at,
+        but now it works according to the instructions. 
 
         Returns:
             bool: True if the circle is a unity circle, False otherwise.
@@ -84,7 +88,7 @@ class Circle(Shape):
     
     def __str__(self) -> str:
         """
-        Get a human-readable string representation of the Circle object.
+        Get a human-readable or more user friendly string representation of the Circle object.
 
         Returns:
             str: A human-readable string representation of the Circle.
@@ -107,8 +111,7 @@ class Circle(Shape):
                     return True
                 else:
                     return False
-        except TypeError as ex:
-            print(ex)
+        except TypeError:
             return False
 
     def __ne__(self, other) -> bool:
@@ -130,7 +133,6 @@ class Circle(Shape):
             else:
                 return False
         except TypeError as ex:
-            print(ex)
             return True
         
     # Setters and getters beyond this point

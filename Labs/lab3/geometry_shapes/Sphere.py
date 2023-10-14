@@ -13,6 +13,9 @@ class Sphere(Shape):
         y (int | float): The y-coordinate of the sphere's center.
         z (int | float): The z-coordinate of the sphere's center.
         radius (int | float): The radius of the sphere.
+    Raises:
+        TypeError if x, y, z or radius are not (int | float)
+        ValueError if radius <= 0.
     """
     def __init__(self, x=0, y=0, z=0, radius=1):
         try:
@@ -21,7 +24,7 @@ class Sphere(Shape):
             self.z = z
             self.radius = radius
         except ValueError as ex:
-            print(ex)
+            raise(ex)
 
     # Asked ChatGPT for the formula to check whether a point is inside a sphere
     def is_inside(self, x, y, z) -> bool:
@@ -98,7 +101,6 @@ class Sphere(Shape):
                 else:
                     return False
         except TypeError as ex:
-            print(ex)
             return False
 
     def __ne__(self, other)  -> bool:
@@ -118,7 +120,6 @@ class Sphere(Shape):
                 else:
                     return False
         except TypeError as ex:
-            print(ex)
             return True
 
 

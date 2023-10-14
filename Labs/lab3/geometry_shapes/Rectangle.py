@@ -15,7 +15,8 @@ class Rectangle(Shape):
         circumference (int | float): The circumference of the rectangle.
         area (int | float): The area of the rectangle.
     Raises:
-        ValueError: If x, y, side1 or side2 are not integers or floats, or if the sides are zero or negative.
+        TypeError if x, y, side1 or side2 are not (int | float)
+        ValueError if side1 or side2 <= 0.
     """
     def __init__(self, x=0, y=0, side1=1, side2=1):
         """
@@ -33,7 +34,7 @@ class Rectangle(Shape):
             self.side1 = side1
             self.side2 = side2
         except ValueError as ex:
-            print(ex)
+            raise(ex)
     
     def is_inside(self, x, y) -> bool:
         """
@@ -96,7 +97,8 @@ class Rectangle(Shape):
 
     def __str__(self) -> str:
         """
-        Get a human-readable string representation of the Rectangle object.
+        Get a human-readable or more user friendly string representation 
+        of the Rectangle object.
 
         Returns:
             str: A human-readable string representation of the Rectangle.
@@ -119,8 +121,7 @@ class Rectangle(Shape):
                     return True
                 else:
                     return False
-        except TypeError as ex:
-            print(ex)
+        except TypeError:
             return False
     def __ne__(self, other) -> bool:
         """
@@ -139,7 +140,6 @@ class Rectangle(Shape):
                 else:
                     return True
         except TypeError as ex:
-            print(ex)
             return True
         
     # Setters and getters beyond this point

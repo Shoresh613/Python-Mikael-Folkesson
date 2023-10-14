@@ -14,7 +14,7 @@ I found that the value of adding a 2D or 3D shape layer in between the super- an
 ![Final UML Diagram](./assets/uml.svg)
 
 ## Plotting
-To do plotting using the .draw() method, you need to first import matplotlib:
+To do plotting using the .draw() method, you first need to import matplotlib:
 ```python
 import matplotlib.pyplot as plt
 ```
@@ -77,22 +77,22 @@ Test files have been written for pytest. They are stored in the lab3 root folder
 ```bash
 pytest .
 ```
-Which yields the following results:
+Which yields results similar to these:
 ```
 Test results:
-========================================================== 55 passed in 0.82s =========================================================== 
-PS Labs\lab3> pytest .
-========================================================== test session starts ==========================================================
+============================ 55 passed in 0.82s ============================= 
+PS ..\Labs\lab3> pytest .
+============================ test session starts ============================
 platform win32 -- Python 3.11.5, pytest-7.4.2, pluggy-1.3.0
-rootdir: Labs\lab3
+rootdir: ..\Labs\lab3
 collected 55 items
 
-test_subclasses.py .................................................                                                               [ 89%]
-test_superclass.py ......                                                                                                          [100%]
+test_subclasses.py .................................................  [ 89%]
+test_superclass.py ......                                             [100%]
 
-========================================================== 55 passed in 0.82s ==========================================================
+============================ 55 passed in 0.82s ============================
 ```
 
 ### Still to do
 * Verify comparisons work again
-* Add tests for checking equality and comparisons
+* Add tests for checking comparisons between classes

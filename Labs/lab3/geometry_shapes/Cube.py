@@ -14,6 +14,9 @@ class Cube(Shape):
         width (int | float): The width of the cube.
         height (int | float): The height of the cube.
         depth (int | float): The depth of the cube.
+    Raises:
+        TypeError if x, y, z, width, height or depth are not (int | float)
+        ValueError if width, height or depth <= 0.
     """
     def __init__(self, x=0, y=0,  z=0, width=1, height=1, depth=1):
         """
@@ -35,7 +38,7 @@ class Cube(Shape):
             self.height = height
             self.depth = depth
         except ValueError as ex:
-            print(ex)
+            raise(ex)
 
     def is_inside(self, x, y, z) -> bool:
         """
@@ -69,7 +72,7 @@ class Cube(Shape):
     def is_cube(self) -> bool:
         """
         Check if the cube is a square cube (equal width, height, and depth).
-        Same as is_square().
+        Calls is_square().
 
         Returns:
             bool: True if the cube is a square, False otherwise.
@@ -79,6 +82,7 @@ class Cube(Shape):
     def is_unity_cube(self) -> bool:
         """
         Check if the cube is a unity cube (centered at the origin and with equal dimensions).
+        This according to the task definition of a unity circle being centered at the origin.
 
         Returns:
             bool: True if the cube is a unity cube, False otherwise.
@@ -145,7 +149,8 @@ class Cube(Shape):
 
     def __str__(self) -> str:
         """
-        Return a human-readable string representation of the Cube object.
+        Return a human-readable or more user friendly string representation
+        of the Cube object.
 
         Returns:
             str: A string providing information about the Cube, including its center point and dimensions.
@@ -168,8 +173,7 @@ class Cube(Shape):
                     return True
                 else:
                     return False
-        except TypeError as ex:
-            print(ex)
+        except TypeError:
             return False
         
     def __ne__(self, other) -> bool:
@@ -189,8 +193,8 @@ class Cube(Shape):
                 else:
                     return True
         except TypeError as ex:
-            print(ex)
             return True
+
     # Setters and getters beyond this point
     #######################################
 

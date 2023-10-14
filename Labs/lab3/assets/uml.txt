@@ -9,11 +9,13 @@ namespace geometry_shapes {
 
 class geometry_shapes.Shape.Shape {
   + translate(x: nr, y: nr, *args: nr) : void
-  + isGreater(other: Shape) : bool
-  + isLess(other: Shape) : bool
   - _check_operand_type(calling: Shape, other: Any) : bool
   - _isValueOk(value: nr) : bool
   - _isSizeValueOk(value: nr) : bool
+  - __gt__(other: Shape) : bool
+  - __lt__(other: Shape) : bool
+  - __ge__(other: Shape) : bool
+  - __le__(other: Shape) : bool
 }
 
 class geometry_shapes.Circle.Circle {
@@ -24,6 +26,9 @@ class geometry_shapes.Circle.Circle {
   area: +nr
   + isInside(x: nr, y: nr) : bool
   + isUnityCircle() : bool
+  + draw(ax: Axis) : void
+  - __eq__(other: Circle) : bool
+  - __ne__(other: Circle) : bool
 }
 
 class geometry_shapes.Rectangle.Rectangle {
@@ -36,6 +41,8 @@ class geometry_shapes.Rectangle.Rectangle {
   + isInside(x: nr, y: nr) : bool
   + isSquare() : bool
   + draw(ax: Axis) : void
+  - __eq__(other: Rectangle) : bool
+  - __ne__(other: Rectangle) : bool
 }
 
 class geometry_shapes.Sphere.Sphere {
@@ -48,6 +55,9 @@ class geometry_shapes.Sphere.Sphere {
   volume: +nr
   + isInside(x: nr, y: nr, z: nr) : bool
   + isUnitySphere() : bool
+  + draw(ax: Axes3D) : void
+  - __eq__(other: Sphere) : bool
+  - __ne__(other: Sphere) : bool
 }
 
 class geometry_shapes.Cube.Cube {
@@ -62,7 +72,11 @@ class geometry_shapes.Cube.Cube {
   volume: +nr
   + isInside(x: nr, y: nr, z: nr) : bool
   + isUnityCube() : bool
-  + draw(ax: Axis3D) : void
+  + isCube() : bool
+  + isSquare() : bool
+  + draw(ax: Axes3D) : void
+  - __eq__(other: Cube) : bool
+  - __ne__(other: Cube) : bool
 }
 
 geometry_shapes.Shape.Shape <|-- geometry_shapes.Circle.Circle
