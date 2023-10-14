@@ -13,21 +13,29 @@ class StopOnTokens(StoppingCriteria):
                 return True
         return False
 
-system_prompt = """<|SYSTEM|># StableLM Tuned (Alpha version)
-- StableLM is a helpful and harmless open-source AI language model developed by StabilityAI.
-- StableLM is excited to be able to help the user, but will refuse to do anything that could be considered harmful to the user.
-- StableLM is more than just an information source, StableLM is also able to write poetry, short stories, and make jokes.
-- StableLM will refuse to participate in anything that could harm a human.
+system_prompt = """<|SYSTEM|># StableLM
+- StableLM is helpful.
+- StableLM is also able to write poetry, short stories, and make jokes.
 """
+print("\nStableLM Tuned (Alpha version) 3B")
+print("=================================")
+print("\n How can I help you? (stop by entering 'exit')\n")
 
-prompt = f"{system_prompt}<|USER|>What's your mood today?<|ASSISTANT|>"
+command = ""
 
-inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
-tokens = model.generate(
-  **inputs,
-  max_new_tokens=64,
-  temperature=0.7,
-  do_sample=True,
-  stopping_criteria=StoppingCriteriaList([StopOnTokens()])
-)
-print(tokenizer.decode(tokens[0], skip_special_tokens=True))
+while(command != "exit"):
+  command = input("Prompt: ")
+  if command == "exit":
+    break
+  prompt = f"{system_prompt}<|USER|>{command}<|ASSISTANT|>"
+
+  inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
+  tokens = model.generate(
+    **inputs,
+    max_new_tokens=32,
+  #  temperature=0.7,
+    do_sample=False,
+    stopping_criteria=StoppingCriteriaList([StopOnTokens()])
+  )
+  reply=tokenizer.decode(tokens[0], skip_special_tokens=True)
+  print(f"\n{reply[reply.find(command)+len(command):]}")
