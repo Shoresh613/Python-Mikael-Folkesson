@@ -1,13 +1,13 @@
 # My personal repo for the Python course for AI23
 Below is the official overview of the course. Besides the Code-Alongs I have also put my Exercises, Lab tasks, and further personal explorations in this repo. 
 
-# Programming with Python (AI23)
+## Programming with Python (AI23)
 
 This is a fundamental Python course with focus of learning important programming concepts in order to solve various problems by writing Python programs. All materials including code-alongs, exercises and resource links can be found in the course [Github repo][ghr].
 
 [ghr]: https://github.com/everyloop/Python-AI23
 
-## Schedule
+### Schedule
 
 For complete course schedule [click here][time_sched]
 
@@ -27,7 +27,7 @@ For complete course schedule [click here][time_sched]
 [w4]: https://github.com/everyloop/Python-AI23/blob/main/Resources/Week4.md
 [w5]: https://github.com/everyloop/Python-AI23/blob/main/Resources/Week5.md
 
-## Resources
+### Resources
 
 Many exercises and lecture materials are in form of Jupyter notebooks with **.ipynb** extensions. Sometimes GitHub may not load them correctly for preview, then you can use [Open in Colab][colab_addon], which is an addon in Chrome to open the notebook in Colab. Alternatively, you can go to [jupyter nbviewer][nbviewer], and paste the link to the notebook for previewing. When working with exercises it is important that you create your own notebooks (.ipynb) or script files (.py).
 
