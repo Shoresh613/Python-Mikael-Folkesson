@@ -1,4 +1,0 @@
-# Further explorations
-
-* Trying out the supposedly very light-weight StableLM-Tuned_Alpha-3B LLM model locally with Cuda. 
-* *Results:* Painfully slow and resource intensive, on a 16 GB RAM Intel i7 6600 Microsoft Surface Book with Cuda enabled NVIDIA GPU M965 (10GB GPU Memory) and SSD drive (R/W ~630GB/s). 5 minutes before showing prompt. 5 additional minutes before reply at 128 additional tokens. At 16 tokens, no sampling and no temperature approximately 90 seconds before reply. Not maxing out on the RAM (12GB) or GPU (7.4 GB), though RAM, SSD and CPU max out on loading the shards (before replying to the prompt). 
