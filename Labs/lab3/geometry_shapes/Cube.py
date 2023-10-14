@@ -155,7 +155,7 @@ class Cube(Shape):
         Returns:
             str: A string providing information about the Cube, including its center point and dimensions.
         """
-        return super().__str__() + f": Center point: {self.x,self.y,self.z}, width: {self.width}, height {self.height}, depth {self.depth}"
+        return f"Cube with Center point: {self.x,self.y,self.z}, width: {self.width}, height {self.height}, depth {self.depth}"
     
     def __eq__(self, other) -> bool:
         """

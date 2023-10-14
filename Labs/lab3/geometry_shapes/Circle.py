@@ -93,7 +93,7 @@ class Circle(Shape):
         Returns:
             str: A human-readable string representation of the Circle.
         """
-        return super().__str__() + f": Center point: {self.x, self.y}, radius: {self.radius}, circumference: {self.circumference}, area: {self.area}"
+        return f"Circle with Center point: {self.x, self.y}, radius: {self.radius}, circumference: {self.circumference}, area: {self.area}"
         
     def __eq__(self, other) -> bool:
         """

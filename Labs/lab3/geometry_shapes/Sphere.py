@@ -82,7 +82,7 @@ class Sphere(Shape):
         return f"Sphere{self.x, self.y, self.z, self.radius}"
     
     def __str__(self) -> str:
-        return super().__str__() + f": Center point: {self.x,self.y,self.z}, radius: {self.radius}, circumference: {self.circumference}, area: {self.area}"
+        return f"Sphere with Center point: {self.x,self.y,self.z}, radius: {self.radius}, circumference: {self.circumference}, area: {self.area}"
         
     def __eq__(self, other)  -> bool:
         """

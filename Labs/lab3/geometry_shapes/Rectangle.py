@@ -103,7 +103,7 @@ class Rectangle(Shape):
         Returns:
             str: A human-readable string representation of the Rectangle.
         """
-        return super().__str__() + f": Center point: {self.x, self.y}, width: {self.side1}, height {self.side2}"
+        return f"Rectangle with Center point: {self.x, self.y}, width: {self.side1}, height {self.side2}"
     
     def __eq__(self, other) -> bool:
         """
