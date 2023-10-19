@@ -8,7 +8,7 @@ import pytest
 # print(L027_Module.sqrt(81))
 
 def main():
-    test_square()
+    test_positive_square()
 
 def test_positive_square():
     assert square(2) == 4

@@ -40,7 +40,6 @@ def game_loop(number_of_rounds):
         else:
             print("Computer wins!")
 
-
 def get_sign_from_user():
     while True:
         sign = input("Pick a sign: ").strip().lower()
