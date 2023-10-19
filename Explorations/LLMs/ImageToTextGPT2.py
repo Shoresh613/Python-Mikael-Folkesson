@@ -32,8 +32,5 @@ def predict_step(image_paths):
   return preds
 
 
-for line in predict_step(['nice fucking meme bro.jpg', "2017 Facebook 93 percent drop traffic from conservative sites political censorship manipulation free speech opinion.jpg",
-"2019 zelensky withdraw Donbass Ukraine not allowed soldiers azov nazi.jpg",
-"2016 2020 election fraud Russian collusion how dare question integrity.jpg",
-"2013-01-28-19-09-13_rasiststampel_politisk_korrekt.jpg"]): # ['a woman in a hospital bed with a woman in a hospital bed']
+for line in predict_step(['1.jpg', "2.jpg"]): # ['a woman in a hospital bed with a woman in a hospital bed']
     print(line)

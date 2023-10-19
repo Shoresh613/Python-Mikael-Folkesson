@@ -20,7 +20,7 @@ print("\nHow can I help you? (stop by entering 'exit')\n")
 
 command = ""
 
-while(command != "exit"):
+while(True):
     command = input("Prompt: ")
     if command == "exit":
         break
